@@ -1,0 +1,99 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Main{
++ static void main(String[] args)
+}
+
+class StartMenu {
++ logIn()
++ signUp()
+}
+
+class Users {
+- String email
+- String password
+- String selectedMovie
+- String selectedSeries
+- ArrayList<String> watchedMovies
+- ArrayList<String> watchedSeries
+- LinkedList<String> saveList
++ createAccount()
++ getAccountInfo()
+}
+
+class FileIO {
++ ArrayList<String> ReadFileData(String path)
++ void readUserData(ArrayList<Users> user, String path)
++ void saveUserData(ArrayList<Users> user, String path)
+}
+
+interface Media {
+resumePlay();
+stopPlay();
+pausePlay();
+
+}
+abstract MediaData{
+- String name()
+- String genre()
+- int ReleaseYear()
+- int Rating()
+
+
+}
+
+class NetflixMenu {
+- TreeSet<MediaList> searchMedia
+- ArrayList<Genre> genreList
+- ArrayList<Movies> movieList
+- ArrayList<Series> seriesList
+}
+
+class Movies {
+- ArrayList<String> movie
+}
+
+class Genre {
+- ArrayList<String> genre
+}
+
+class Series {
+- ArrayList<String> series
+}
+
+class Seasons {
+- ArrayList<String> season
+}
+
+class Episodes {
+- ArrayList<String> episode
+}
+
+class TextUI {
+- Scanner scanner
++ void displayMsg()
++ void displayMovie(String movieName)
++ void displaySeries(String seriesName, String season, String episode)
+}
+
+Main *--- StartMenu
+StartMenu "1 " *-- "1  " Users
+Users <|-- NetflixMenu
+NetflixMenu <|-- Movies
+NetflixMenu <|-- Series
+NetflixMenu <|-- Genre
+Genre --> Movies
+Genre --> Series
+Series *-- Seasons
+Seasons *-- Episodes
+Media *-- Movies
+Media *-- Series
+FileIO *-- Users
+TextUI *-- Users
+TextUI *-- StartMenu
+MediaData *-- Movies
+MediaData *-- Series
+FileIO *-- MediaData
+
+@enduml
