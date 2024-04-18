@@ -1,2 +1,6 @@
-public class Episodes extends Seasons{
+import java.util.ArrayList;
+
+public class Episodes{
+
+    ArrayList<String> episode;
 }
