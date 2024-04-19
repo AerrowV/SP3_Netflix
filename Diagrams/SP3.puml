@@ -15,7 +15,7 @@ class User {
 - String password
 - ArrayList<Movie> watchedMovies
 - ArrayList<Series> watchedSeries
-- LinkedList<String> saveList
+- LinkedList<String> watchLater
 + createAccount()
 + getAccountInfo()
 }
