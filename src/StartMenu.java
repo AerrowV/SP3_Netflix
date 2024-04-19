@@ -1,49 +1,49 @@
-import java.util.ArrayList;
+import java.io.*;
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 
-public class StartMenu {
-
+public class StartMenu extends FileIO {
 
     public void login() {
-
-
-        ArrayList<String> menu = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
-        menu.add("1) " + "Login");
-        menu.add("2) " + "Register");
-        menu.add("3) " + "Exit");
-        System.out.println(menu.get(0));
-        System.out.println(menu.get(1));
-        System.out.println(menu.get(2));
-        String userInput = scan.nextLine();
 
+        while (true) {
+            System.out.println("1) Login");
+            System.out.println("2) Register");
+            System.out.println("3) Exit");
+            System.out.print("Choose an option: ");
+            String userInput = scan.nextLine();
 
-        if (menu.getFirst().equals("1) " + "Login")) {
-            Scanner sc = new Scanner(System.in);
-            System.out.println(("Type Email:"));
-            String user = sc.nextLine();
-            System.out.println(("Type Password:"));
-            String pass = sc.nextLine();
+            if ("1".equals(userInput)) {
+                System.out.println("Type Email:");
+                String email = scan.nextLine();
+                System.out.println("Type Password:");
+                String password = scan.nextLine();
 
+                if (checkCredentials(email, password)) {
+                    System.out.println("Login successful!");
+                } else {
+                    System.out.println("Invalid login. Please try again.");
+                }
+            } else if ("2".equals(userInput)) {
+                System.out.println("Register new user");
+                System.out.println("Type Email:");
+                String newEmail = scan.nextLine();
+                System.out.println("Type Password:");
+                String newPassword = scan.nextLine();
 
+                if (!isUserExists(newEmail)) {
+                    registerUser(newEmail, newPassword);
+                    System.out.println("User registered successfully!");
+                } else {
+                    System.out.println("Email already registered!");
+                }
+            } else if ("3".equals(userInput)) {
+                break;
+            } else {
+                System.out.println("Invalid option. Please enter 1, 2, or 3.");
+            }
         }
 
-public void FileWriter(){
-
-
-
-
-
-
-        }
-
-
-
-        public String displayMsg (String msg){
-            return msg;
-        }
+        scan.close();
     }
 }
