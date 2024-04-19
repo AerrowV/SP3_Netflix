@@ -5,32 +5,21 @@ import java.util.Scanner;
 public class FileIO {
     private String dataFile = "Files/UserAccountData";
 
-    public void readFileData(String path, int textUnits){
-        String [] data = new String[textUnits];
-        File file = new File(path);
-
+    public ArrayList<String> readFileData(String path){
+        ArrayList<String> mediaData = new ArrayList<>();
         try {
             File textFile = new File(path);
             Scanner scan = new Scanner(textFile);
 
-
                 while (scan.hasNextLine()) {
-                    for(int i = 0; i < textUnits; i++){
-                        String line = scan.nextLine();
-                        data[i] = line;
-                        data = line.split(";", 4);
-
-                        for (int y = 0; y < data.length; y++) {
-                            System.out.println(data[y]);
-                        }
-                        System.out.println("\n");
+                    mediaData.add(scan.nextLine());
                     }
-                }
                 scan.close();
             } catch (FileNotFoundException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
+        return mediaData;
         }
 
     public void readUserData(ArrayList<Users> user, String path) {
