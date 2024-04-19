@@ -6,12 +6,24 @@ import java.util.Scanner;
 
 public class FileIO {
 
-    public ArrayList<String> readFileData(String path){
-        try {
-            File textFile = new File(path);
-            Scanner scan = new Scanner(textFile);
-            while (scan.hasNextLine()) {
+    public void readFileData(String path, int textUnits){
+        String [] data = new String[textUnits];
+        File file = new File(path);
 
+        try {
+            Scanner scan = new Scanner(file);
+
+            while (scan.hasNextLine()) {
+                for(int i = 0; i < textUnits; i++){
+                    String line = scan.nextLine();
+                    data[i] = line;
+                    data = line.split(";", 4);
+
+                    for (int y = 0; y < data.length; y++) {
+                        System.out.println(data[y]);
+                    }
+                    System.out.println("\n");
+                }
             }
             scan.close();
         } catch (FileNotFoundException e) {
