@@ -3,11 +3,17 @@ import java.util.TreeSet;
 
 public class NetflixMenu {
 
-    private TreeSet<MediaData> searchMedia;
+    public TreeSet<MediaData> getSearchMedia() {
+        return searchMedia;
+    }
+
+    private TreeSet<MediaData> searchMedia= new TreeSet<>();
 
     private ArrayList<Genre> genreList;
 
     private ArrayList<Movies> movieList;
 
     private ArrayList<Series> seriesList;
+
+
 }
