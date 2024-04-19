@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,8 +12,7 @@ public class FileIO {
         try {
             File textFile = new File(path);
             Scanner scan = new Scanner(textFile);
-            while (scan.hasNextLine()) {
-                Scanner scan = new Scanner(file);
+
 
                 while (scan.hasNextLine()) {
                     for(int i = 0; i < textUnits; i++){
