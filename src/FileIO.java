@@ -61,7 +61,7 @@ public class FileIO {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] parts = line.split(";");
-                if (parts.length == 2 && parts[0].equals(email) && parts[1].equals(password)) {
+                if (parts[0].equals(email) && parts[1].equals(password)) {
                     return true;
                 }
             }
@@ -76,7 +76,7 @@ public class FileIO {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] parts = line.split(";");
-                if (parts.length == 2 && parts[0].equals(email)) {
+                if (parts[0].equals(email)) {
                     return true;
                 }
             }
@@ -88,7 +88,7 @@ public class FileIO {
 
     public void registerUser(String email, String password) {
         try (FileWriter writer = new FileWriter(dataFile, true)) {
-            writer.write(email + "," + password + "\n");
+            writer.write(email + ";" + password + "\n");
         } catch (IOException e) {
             System.out.println("Failed to register user: " + e.getMessage());
         }

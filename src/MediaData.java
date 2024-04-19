@@ -2,14 +2,14 @@ public abstract class MediaData {
 
     String name;
     String Genre;
-    int RealeaseYear;
+    int ReleaseYear;
     int Rating;
 
 
- public MediaData(String name, String genre, int realeaseYear, int rating){
+ public MediaData(String name, String genre, int releaseYear, int rating){
     this.name = name;
     this.Genre = genre;
-    this.RealeaseYear = realeaseYear;
+    this.ReleaseYear = releaseYear;
     this.Rating = rating;
 
 }
