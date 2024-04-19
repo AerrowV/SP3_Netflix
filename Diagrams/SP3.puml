@@ -10,13 +10,11 @@ class StartMenu {
 + signUp()
 }
 
-class Users {
+class User {
 - String email
 - String password
-- String selectedMovie
-- String selectedSeries
-- ArrayList<String> watchedMovies
-- ArrayList<String> watchedSeries
+- ArrayList<Movie> watchedMovies
+- ArrayList<Series> watchedSeries
 - LinkedList<String> saveList
 + createAccount()
 + getAccountInfo()
@@ -46,28 +44,30 @@ abstract MediaData{
 class NetflixMenu {
 - TreeSet<MediaList> searchMedia
 - ArrayList<Genre> genreList
-- ArrayList<Movies> movieList
+- ArrayList<Movie> movieList
 - ArrayList<Series> seriesList
+- ArrayList<User> userList
+
 }
 
-class Movies {
-- ArrayList<String> movie
+class Movie {
 }
 
 class Genre {
 - ArrayList<String> genre
++ mediaWithThisGenre()
 }
 
 class Series {
-- ArrayList<String> series
-}
-
-class Seasons {
 - ArrayList<String> season
 }
 
-class Episodes {
+class Season {
 - ArrayList<String> episode
+}
+
+class Episode {
+
 }
 
 class TextUI {
@@ -78,21 +78,21 @@ class TextUI {
 }
 
 Main *--- StartMenu
-StartMenu "1 " *-- "1  " Users
+StartMenu *-- User
 Users <|-- NetflixMenu
-NetflixMenu <|-- Movies
+NetflixMenu <|-- Movie
 NetflixMenu <|-- Series
 NetflixMenu <|-- Genre
-Genre --> Movies
+Genre --> Movie
 Genre --> Series
-Series *-- Seasons
-Seasons *-- Episodes
-Media *-- Movies
+Series *-- Season
+Season *-- Episodes
+Media *-- Movie
 Media *-- Series
-FileIO *-- Users
-TextUI *-- Users
+FileIO *-- User
+TextUI *-- User
 TextUI *-- StartMenu
-MediaData *-- Movies
+MediaData *-- Movie
 MediaData *-- Series
 FileIO *-- MediaData
 
