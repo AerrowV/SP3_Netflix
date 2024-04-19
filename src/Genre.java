@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Genre {
 
-
-
     private ArrayList<String> genre;
 
     public Genre(ArrayList<String> genre) {
@@ -43,7 +41,7 @@ public void genreList(){
 
 }
 
-
+/*
 public String chooseGenre() {
 
     Scanner scanner = new Scanner();
@@ -52,10 +50,6 @@ public String chooseGenre() {
     switch () {
 
         case 1:
-
-
     }
-
-
-}
+}*/
 }
