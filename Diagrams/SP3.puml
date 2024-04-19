@@ -79,14 +79,14 @@ class TextUI {
 
 Main *--- StartMenu
 StartMenu *-- User
-Users <|-- NetflixMenu
+User <|-- NetflixMenu
 NetflixMenu <|-- Movie
 NetflixMenu <|-- Series
 NetflixMenu <|-- Genre
 Genre --> Movie
 Genre --> Series
 Series *-- Season
-Season *-- Episodes
+Season *-- Episode
 Media *-- Movie
 Media *-- Series
 FileIO *-- User
