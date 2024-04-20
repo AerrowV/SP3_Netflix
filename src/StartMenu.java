@@ -1,7 +1,9 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class StartMenu extends FileIO {
+public class StartMenu {
+
+    User user = new User();
 
     public void login() {
         Scanner scan = new Scanner(System.in);
@@ -19,7 +21,7 @@ public class StartMenu extends FileIO {
                 System.out.println("Type Password:");
                 String password = scan.nextLine();
 
-                if (checkCredentials(email, password)) {
+                if (user.getAccountInfo(email, password)) {
                     System.out.println("Login successful!");
                 } else {
                     System.out.println("Invalid login. Please try again.");
@@ -31,8 +33,8 @@ public class StartMenu extends FileIO {
                 System.out.println("Type Password:");
                 String newPassword = scan.nextLine();
 
-                if (!isUserExists(newEmail)) {
-                    registerUser(newEmail, newPassword);
+                if (!user.isUserExists(newEmail)) {
+                    user.createAccount(newEmail, newPassword);
                     System.out.println("User registered successfully!");
                 } else {
                     System.out.println("Email already registered!");

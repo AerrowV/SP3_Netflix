@@ -1,11 +1,9 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.TreeSet;
 
 public class Genre {
-    NetflixMenu objekt= new NetflixMenu();
-    FileIO objekt2= new FileIO();
+    private NetflixMenu menu = new NetflixMenu();
+    private FileIO file = new FileIO();
     private ArrayList<String> genre;
 /*
     public Genre(ArrayList<String> genre) {
