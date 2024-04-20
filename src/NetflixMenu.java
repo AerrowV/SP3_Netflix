@@ -11,7 +11,7 @@ public class NetflixMenu {
 
     private ArrayList<Genre> genreList;
 
-    private ArrayList<Movies> movieList;
+    private ArrayList<Movie> movieList;
 
     private ArrayList<Series> seriesList;
 

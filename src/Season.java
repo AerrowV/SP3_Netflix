@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Seasons{
+public class Season {
 
     ArrayList<String> season;
 

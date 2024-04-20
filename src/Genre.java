@@ -4,12 +4,8 @@ import java.util.Scanner;
 public class Genre {
     private NetflixMenu menu = new NetflixMenu();
     private FileIO file = new FileIO();
-    private ArrayList<String> genre;
-/*
-    public Genre(ArrayList<String> genre) {
-        this.genre = genre;
-    }
-*/
+    private ArrayList<String> genre = new ArrayList<>();
+
     public ArrayList<String> getGenre() {
         return genre;
     }
