@@ -8,7 +8,6 @@ public class Movie extends MediaData implements Media {
     @Override
     public void resumePlay() {
         System.out.println("Resuming movie: " + getName());
-
     }
 
     @Override
