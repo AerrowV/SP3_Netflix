@@ -11,9 +11,17 @@ public class Series extends MediaData implements Media{
 
     }
 
+    public ArrayList<String> getEpisode() {
+        return episode;
+    }
+
+    public ArrayList<String> getSeason() {
+        return season;
+    }
+
     @Override
     public void resumePlay() {
-
+        System.out.println("Resuming series: " + getName());
     }
 
     @Override
@@ -23,6 +31,6 @@ public class Series extends MediaData implements Media{
 
     @Override
     public void pausePlay() {
-
+        System.out.println("Pausing series: " + getName() + " , " + getSeason() + " , " + getEpisode());
     }
 }
