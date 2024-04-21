@@ -48,7 +48,7 @@ public class User {
         return false;
     }
 
-    public boolean isUserExists(String email) {
+    public boolean DoesUserExist(String email) {
         try (Scanner scanner = new Scanner(new FileReader(userDataFile))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();

@@ -33,7 +33,7 @@ public class StartMenu {
                 System.out.println("Type Password:");
                 String newPassword = scan.nextLine();
 
-                if (!user.isUserExists(newEmail)) {
+                if (!user.DoesUserExist(newEmail)) {
                     user.createAccount(newEmail, newPassword);
                     System.out.println("User registered successfully!");
                 } else {
