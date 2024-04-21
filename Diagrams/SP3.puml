@@ -11,8 +11,6 @@ class StartMenu {
 }
 
 class User {
-- String email
-- String password
 - ArrayList<Movie> watchedMovies
 - ArrayList<Series> watchedSeries
 - LinkedList<String> watchLater
