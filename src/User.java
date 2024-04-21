@@ -13,7 +13,7 @@ public class User {
     private ArrayList<String> watchedMovies;
     private ArrayList<String> watchedSeries;
     private LinkedList<String> saveList;
-    private String dataFile = "Files/UserAccountData";
+    private String userDataFile = "Files/UserAccountData";
 
     public User() {
         this.email = email;
@@ -26,7 +26,7 @@ public class User {
     }
 
     public void createAccount(String email, String password) {
-        try (FileWriter writer = new FileWriter(dataFile, true)) {
+        try (FileWriter writer = new FileWriter(userDataFile, true)) {
             writer.write(email + ";" + password + "\n");
         } catch (IOException e) {
             System.out.println("Failed to register user: " + e.getMessage());
@@ -34,11 +34,11 @@ public class User {
     }
 
     public boolean getAccountInfo(String email, String password) {
-        try (Scanner scanner = new Scanner(new FileReader(dataFile))) {
+        try (Scanner scanner = new Scanner(new FileReader(userDataFile))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] parts = line.split(";");
-                if (parts[0].equals(email) && parts[1].equals(password)) {
+                String[] index = line.split(";");
+                if (index[0].equals(email) && index[1].equals(password)) {
                     return true;
                 }
             }
@@ -49,11 +49,11 @@ public class User {
     }
 
     public boolean isUserExists(String email) {
-        try (Scanner scanner = new Scanner(new FileReader(dataFile))) {
+        try (Scanner scanner = new Scanner(new FileReader(userDataFile))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                String[] parts = line.split(";");
-                if (parts[0].equals(email)) {
+                String[] index = line.split(";");
+                if (index[0].equals(email)) {
                     return true;
                 }
             }

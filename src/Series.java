@@ -18,7 +18,7 @@ public class Series extends MediaData implements Media{
 
     @Override
     public void stopPlay() {
-
+        System.out.println("Stopping series: " + getName());
     }
 
     @Override
