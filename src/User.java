@@ -6,8 +6,6 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class User {
-    private String email;
-    private String password;
     private String selectedMovie;
     private String selectedSeries;
     private ArrayList<String> watchedMovies;
@@ -16,8 +14,6 @@ public class User {
     private String userDataFile = "Files/UserAccountData";
 
     public User() {
-        this.email = email;
-        this.password = password;
         this.selectedMovie = selectedMovie;
         this.selectedSeries = selectedSeries;
         this.saveList = saveList;
