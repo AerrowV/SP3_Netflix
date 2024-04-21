@@ -10,6 +10,8 @@ public class Main {
 
         // netflixMenu.displaySeriesList();
 
-        netflixMenu.displayGenreList();
+        // netflixMenu.displayGenreList();
+
+        netflixMenu.searchMedia("the");
     }
 }

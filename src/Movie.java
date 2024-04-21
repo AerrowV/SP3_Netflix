@@ -25,5 +25,10 @@ public class Movie extends MediaData implements Media {
     public String toString() {
         return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating();
     }
+
+    @Override
+    public int compareTo(MediaData o) {
+        return this.getName().compareTo((o).getName());
+    }
 }
 

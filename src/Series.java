@@ -33,4 +33,8 @@ public class Series extends MediaData implements Media{
         return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating() + " / " + getSeasonEpisode();
     }
 
+    @Override
+    public int compareTo(MediaData o) {
+        return this.getName().compareTo((o).getName());
+    }
 }
