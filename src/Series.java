@@ -1,22 +1,16 @@
 import java.util.ArrayList;
 
 public class Series extends MediaData implements Media{
-    private ArrayList<String> season;
-    private ArrayList<String> episode;
+    private ArrayList<String> seasonEpisode;
 
-    public Series(String name, String genre, int releaseYear, int rating, ArrayList<String> season, ArrayList<String> episode) {
+    public Series(String name, String releaseYear, String genre,  float rating, ArrayList<String> seasonEpisode) {
         super(name, genre, releaseYear, rating);
-        this.season = season;
-        this.episode = episode;
+        this.seasonEpisode = seasonEpisode;
 
     }
 
-    public ArrayList<String> getEpisode() {
-        return episode;
-    }
-
-    public ArrayList<String> getSeason() {
-        return season;
+    public ArrayList<String> getSeasonEpisode() {
+        return seasonEpisode;
     }
 
     @Override
@@ -31,6 +25,12 @@ public class Series extends MediaData implements Media{
 
     @Override
     public void pausePlay() {
-        System.out.println("Pausing series: " + getName() + " , " + getSeason() + " , " + getEpisode());
+        System.out.println("Pausing series: " + getName() + " , " + getSeasonEpisode());
     }
+
+    @Override
+    public String toString() {
+        return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating() + " / " + getSeasonEpisode();
+    }
+
 }

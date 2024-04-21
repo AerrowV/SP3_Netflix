@@ -2,11 +2,11 @@ public abstract class MediaData {
 
     String name;
     String genre;
-    int releaseYear;
-    int rating;
+    String releaseYear;
+    float rating;
 
 
-    public MediaData(String name, String genre, int releaseYear, int rating) {
+    public MediaData(String name, String genre, String releaseYear, float rating) {
         this.name = name;
         this.genre = genre;
         this.releaseYear = releaseYear;
@@ -22,11 +22,11 @@ public abstract class MediaData {
         return genre;
     }
 
-    public int getReleaseYear() {
+    public String getReleaseYear() {
         return releaseYear;
     }
 
-    public int getRating() {
+    public float getRating() {
         return rating;
     }
 

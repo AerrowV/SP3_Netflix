@@ -1,6 +1,6 @@
 public class Movie extends MediaData implements Media {
 
-    public Movie(String name, String genre, int releaseYear, int rating) {
+    public Movie(String name, String releaseYear, String genre, float rating) {
         super(name, genre, releaseYear, rating);
 
     }
@@ -20,4 +20,10 @@ public class Movie extends MediaData implements Media {
     public void pausePlay() {
         System.out.println("Pausing movie: " + getName());
     }
+
+    @Override
+    public String toString() {
+        return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating();
+    }
 }
+

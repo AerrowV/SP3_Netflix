@@ -25,7 +25,7 @@ public class User {
         try (FileWriter writer = new FileWriter(userDataFile, true)) {
             writer.write(email + ";" + password + "\n");
         } catch (IOException e) {
-            System.out.println("Failed to register user: " + e.getMessage());
+            System.out.println("Failed to register user");
         }
     }
 
@@ -39,7 +39,7 @@ public class User {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Failed to check credentials: " + e.getMessage());
+            System.out.println("Failed to check credentials");
         }
         return false;
     }
@@ -54,7 +54,7 @@ public class User {
                 }
             }
         } catch (IOException e) {
-            System.out.println("User doesn't exist: " + e.getMessage());
+            System.out.println("User doesn't exist");
         }
         return false;
     }
