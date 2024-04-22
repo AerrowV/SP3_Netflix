@@ -37,16 +37,17 @@ public class FileIO {
                     float rating = Float.parseFloat(values[3].trim());
                     ArrayList<String> seasonEpisode = new ArrayList<>(List.of(values[4].split(",")));
                     ArrayList<Season> seasons = new ArrayList<>();
-                    for (int i = 4; i < values.length; i++) {
-                        seasons.add(new Season(values[i].trim()));
+                    for (String seasonInfo : seasonEpisode) {
+                        seasons.add(new Season(seasonInfo.trim()));
                     }
                     seriesList.add(new Series(name, releaseDate, genre, rating, seasons));
                 }
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
+
         } catch (NumberFormatException e) {
-            System.out.println("Error parsing value");
+                System.out.println("Error parsing float");
+            }
         }
     }
-}
