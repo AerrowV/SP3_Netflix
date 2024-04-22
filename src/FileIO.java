@@ -37,17 +37,10 @@ public class FileIO {
                     float rating = Float.parseFloat(values[3].trim());
                     ArrayList<String> seasonEpisode = new ArrayList<>(List.of(values[4].split(",")));
                     ArrayList<Season> seasons = new ArrayList<>();
-                    for (String seasonInfo : seasonEpisode) {
-                        Season season = new Season(seasonInfo);
-                        seasons.add(season);
-
+                    for (int i = 4; i < values.length; i++) {
+                        seasons.add(new Season(values[i].trim()));
                     }
-                    //arraylist af season objekter
-                    //for hvert item i seasonEpisode
-                    //new Season objekt
-                    //tilføj season objekt til liste
-                    //for hvert season objekt opret nye episode objekter og tilføj til relevant liste
-                    seriesList.add(new Series(name, releaseDate, genre, rating, seasonEpisode));
+                    seriesList.add(new Series(name, releaseDate, genre, rating, seasons));
                 }
             }
         } catch (FileNotFoundException e) {

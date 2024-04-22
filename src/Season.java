@@ -2,37 +2,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Season {
-    NetflixMenu menu = new NetflixMenu();
-
-    ArrayList<Episode> episodes = new ArrayList<Episode>();
+    private String seasonNumber;
+    ArrayList<Episode> episodes = new ArrayList<>();
 
     public Season(String seasonInfo) {
-    }
-
-    public void season() {
-        for (int i = 0; i < menu.getSeriesList().size(); i++) {
-            List<String> episodeNumber = menu.getSeriesList().get(i).getSeasonEpisode();
-            for (int j = 0; j < episodeNumber.size() ; j++) {
-                String[] epNum = episodeNumber.get(j).split("-");
-               // episodes.add(new Episode(epNum[1]));
+        String[] parts = seasonInfo.split("-Episode ");
+        if (parts.length == 2) {
+            this.seasonNumber = parts[0].trim();
+            int episodeCount = Integer.parseInt(parts[1].trim());
+            for (int i = 1; i <= episodeCount; i++) {
+                episodes.add(new Episode(i));
             }
         }
     }
 
+
+    public ArrayList<Episode> getEpisodes() {
+        return episodes;
+    }
+
+
+    public String getSeasonNumber() {
+        return seasonNumber;
+
+    }
+    @Override
+    public String toString() {
+        return "Season " + seasonNumber;
+    }
 }
-
-   /* public void searchGenre(){
-        NetflixMenu menu = new NetflixMenu();
-        String chosenGenre = mediaWithThisGenre()
-        for (int i = 0; i < menu.getMovieList().size(); i++) {
-
-            String movieGenre = menu.getMovieList().get(i).genre;
-            String[] genres = movieGenre.split(",");
-
-            for (int j = 0; j < genres.length; j++) {
-                if(genres[j].trim().equals(chosenGenre)){
-                    System.out.println(menu.getMovieList().get(i));
-                }
-            }
-        }
-    */

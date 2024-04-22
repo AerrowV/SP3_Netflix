@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 public class Series extends MediaData implements Media{
-    private ArrayList<String> seasonEpisode;
+    private ArrayList<Season> seasonEpisode;
 
-    public Series(String name, String releaseYear, String genre,  float rating, ArrayList<String> seasonEpisode) {
+    public Series(String name, String releaseYear, String genre, float rating, ArrayList<Season> seasonEpisode) {
         super(name, genre, releaseYear, rating);
         this.seasonEpisode = seasonEpisode;
 
     }
 
-    public ArrayList<String> getSeasonEpisode() {
+    public ArrayList<Season> getSeasonEpisode() {
         return seasonEpisode;
     }
 
