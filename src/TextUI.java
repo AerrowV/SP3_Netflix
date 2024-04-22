@@ -60,23 +60,22 @@ public class TextUI {
     }
 
 
-        public String greetingFromMenu () {
-            System.out.println("***********************");
-            System.out.println("Velkommen Til Netflix Menu!");
-            System.out.println("***********************");
-            System.out.println("1) Search Media");
-            System.out.println("2) Search Genre");
-            System.out.println("3) Exit");
-            System.out.print("Choose an option: ");
-            String userInput = sc.nextLine();
-            return userInput;
+    public String greetingFromMenu() {
+        System.out.println("***********************");
+        System.out.println("Velkommen Til Netflix Menu!");
+        System.out.println("***********************");
+        System.out.println("1) Search Media");
+        System.out.println("2) Search Genre");
+        System.out.println("3) Exit");
+        System.out.print("Choose an option: ");
+        String userInput = sc.nextLine();
+        return userInput;
 
-        }
+    }
 
-        public String userInput (){
+    public String userInput() {
         return sc.nextLine();
-        }
-
+    }
 
 
 }
