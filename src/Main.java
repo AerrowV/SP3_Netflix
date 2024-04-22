@@ -12,6 +12,6 @@ public class Main {
 
         // netflixMenu.displayGenreList();
 
-        netflixMenu.searchMedia("the");
+        // netflixMenu.searchMedia("the");
     }
 }

@@ -1,9 +1,10 @@
+import javax.swing.plaf.FontUIResource;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.*;
 
 public class NetflixMenu {
-
 
     private ArrayList<String> genreList;
 
@@ -11,13 +12,15 @@ public class NetflixMenu {
 
     private ArrayList<Series> seriesList;
 
+
     public NetflixMenu() {
         genreList = new ArrayList<>();
         movieList = new ArrayList<>();
         seriesList = new ArrayList<>();
 
-        loadMoviesFromList("Files/Movie.txt");
-        loadSeriesFromList("Files/Series.txt");
+        FileIO fileIO = new FileIO();
+        fileIO.loadMoviesFromList("Files/Movie.txt", movieList);
+        fileIO.loadSeriesFromList("Files/Series.txt", seriesList);
         initializeGenreList();
 
     }
@@ -54,6 +57,7 @@ public class NetflixMenu {
         }
     }
 
+
     public void displaySeriesList() {
         for (Series s : seriesList) {
             System.out.println(s);
@@ -72,55 +76,8 @@ public class NetflixMenu {
         }
     }
 
-    public void loadMoviesFromList(String path) {
-        File movieFile = new File(path);
-        try (Scanner scanner = new Scanner(movieFile)) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] values = line.split(";");
-                if (values.length >= 4) {
-                    String name = values[0].trim();
-                    String releaseDate = (values[1].trim());
-                    String genre = values[2].trim();
-                    float rating = Float.parseFloat((values[3].trim()));
-                    Movie movie = new Movie(name, releaseDate, genre, rating);
-                    movieList.add(movie);
-
-                }
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (NumberFormatException e) {
-            System.out.println("Error parsing value");
-        }
-    }
-
-    public void loadSeriesFromList(String path) {
-        File seriesFile = new File(path);
-        try (Scanner scanner = new Scanner(seriesFile)) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] values = line.split(";");
-                if (values.length >= 4) {
-                    String name = values[0].trim();
-                    String releaseDate = values[1].trim();
-                    String genre = values[2].trim();
-                    float rating = Float.parseFloat((values[3].trim()));
-                    ArrayList<String> seasonEpisode = new ArrayList<>(List.of(values[4].trim().split(",")));
-                    Series series = new Series(name, releaseDate, genre, rating, seasonEpisode);
-                    seriesList.add(series);
-
-                }
-
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (NumberFormatException e) {
-            System.out.println("Error parsing value");
-        }
-    }
-
     public void searchMedia(String keyword) {
+
         TreeSet<MediaData> set = new TreeSet<>();
         for (Movie movie : movieList) {
             if (movie.getName().toLowerCase().contains(keyword.toLowerCase())) {
@@ -135,6 +92,13 @@ public class NetflixMenu {
         }
 
         displaySearchMedia(set);
+    }
+    public ArrayList<Movie> getMovieList() {
+        return movieList;
+    }
+
+    public ArrayList<Series> getSeriesList() {
+        return seriesList;
     }
 }
 
