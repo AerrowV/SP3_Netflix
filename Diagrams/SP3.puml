@@ -1,5 +1,9 @@
 @startuml
 'https://plantuml.com/class-diagram
+ skinparam linetype ortho
+
+
+
 
 class Main{
 + static void main(String[] args)
@@ -96,7 +100,7 @@ class TextUI {
 
 Main -- StartMenu
 StartMenu *-- User
-TextUI *- StartMenu
+TextUI *-up- StartMenu
 User *- NetflixMenu
 NetflixMenu -- Movie
 NetflixMenu -- Series
@@ -110,6 +114,5 @@ Media *-- Series
 FileIO *-- User
 MediaData *-- Movie
 MediaData *-- Series
-FileIO *-- MediaData
 
 @enduml

@@ -2,47 +2,39 @@ import java.io.*;
 import java.util.Scanner;
 
 public class StartMenu {
-
+    TextUI UI = new TextUI();
     User user = new User();
 
     public void loginAndSignUp() {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.println("1) Login");
-            System.out.println("2) Register");
-            System.out.println("3) Exit");
-            System.out.print("Choose an option: ");
-            String userInput = scan.nextLine();
+           String userInput = UI.greetingMessage();
 
             if ("1".equals(userInput)) {
-                System.out.println("Type Email:");
-                String email = scan.nextLine();
-                System.out.println("Type Password:");
-                String password = scan.nextLine();
+              String email =  UI.messageGetUserEmail();
+                String password = UI.messageGetUserPassword();
 
                 if (user.getAccountInfo(email, password)) {
-                    System.out.println("Login successful!");
+                    UI.displayMsg("Login successful!");
                 } else {
-                    System.out.println("Invalid login. Please try again.");
+                    UI.displayMsg("Invalid login. Please try again.");
                 }
             } else if ("2".equals(userInput)) {
-                System.out.println("Register new user");
-                System.out.println("Type Email:");
-                String newEmail = scan.nextLine();
-                System.out.println("Type Password:");
-                String newPassword = scan.nextLine();
+               String newEmail = UI.messageGetRegisterEmail();
+               String newPassword = UI.messageGetRegisterPassword();
 
                 if (!user.DoesUserExist(newEmail)) {
                     user.createAccount(newEmail, newPassword);
-                    System.out.println("User registered successfully!");
+                    UI.displayMsg("User registered successfully!");
                 } else {
-                    System.out.println("Email already registered!");
+                    UI.displayMsg("Email already registered!");
                 }
+
             } else if ("3".equals(userInput)) {
                 break;
             } else {
-                System.out.println("Invalid option. Please enter 1, 2, or 3.");
+                UI.displayMsg("Invalid option. Please enter 1, 2, or 3.");
             }
         }
 

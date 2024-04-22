@@ -35,7 +35,7 @@ public class FileIO {
                     String releaseDate = values[1].trim();
                     String genre = values[2].trim();
                     float rating = Float.parseFloat(values[3].trim());
-                    ArrayList<String> seasonEpisode = new ArrayList<>(List.of(values[4].trim().split(",")));
+                    ArrayList<String> seasonEpisode = new ArrayList<>(List.of(values[4].split(",")));
                     seriesList.add(new Series(name, releaseDate, genre, rating, seasonEpisode));
                 }
             }

@@ -13,5 +13,9 @@ public class Main {
         // netflixMenu.displayGenreList();
 
         // netflixMenu.searchMedia("the");
+
+        // genre.searchGenre();
+
+        // season.season();
     }
 }
