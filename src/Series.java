@@ -25,7 +25,7 @@ public class Series extends MediaData implements Media{
 
     @Override
     public void pausePlay() {
-        System.out.println("Pausing series: " + getName() + " , " + getSeasonEpisode());
+        System.out.println("Pausing series: " + getName());
     }
 
     @Override
