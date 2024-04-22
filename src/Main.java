@@ -4,6 +4,7 @@ public class Main {
         StartMenu startMenu = new StartMenu();
         NetflixMenu netflixMenu = new NetflixMenu();
 
+
         // startMenu.loginAndSignUp();
 
         // netflixMenu.displayMovieList();
@@ -13,5 +14,15 @@ public class Main {
         // netflixMenu.displayGenreList();
 
         // netflixMenu.searchMedia("the");
+
+        //TextUI text = new TextUI();
+
+        //text.askForGenre();
+
+
+
+
+        //Genre genre = new Genre();
+        //genre.searchGenre();
     }
 }

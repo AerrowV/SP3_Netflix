@@ -100,6 +100,10 @@ public class NetflixMenu {
     public ArrayList<Series> getSeriesList() {
         return seriesList;
     }
+
+    public ArrayList<String> getGenreList(){
+        return genreList;
+    }
 }
 
 
