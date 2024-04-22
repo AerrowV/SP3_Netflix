@@ -13,7 +13,9 @@ public class TextUI {
 
     public void askForGenre(){
         NetflixMenu menu = new NetflixMenu();
+        System.out.println("Choose your genre below:");
         System.out.println(menu.getGenreList());
+
 
 
     }
