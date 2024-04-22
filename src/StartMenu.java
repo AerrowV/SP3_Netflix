@@ -5,7 +5,7 @@ public class StartMenu {
 
     User user = new User();
 
-    public void login() {
+    public void loginAndSignUp() {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
