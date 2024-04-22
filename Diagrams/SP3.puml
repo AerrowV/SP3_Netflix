@@ -6,22 +6,25 @@ class Main{
 }
 
 class StartMenu {
-+ logIn()
-+ signUp()
++ loginAndSignUp()
+
 }
 
 class User {
+- String selectedMovies
+- String selectedSeries
 - ArrayList<Movie> watchedMovies
 - ArrayList<Series> watchedSeries
-- LinkedList<String> watchLater
+- LinkedList<String> saveList
+- String userDataFile
 + createAccount()
 + getAccountInfo()
++ doesUserExist()
 }
 
 class FileIO {
-+ ArrayList<String> ReadFileData(String path)
-+ void readUserData(ArrayList<Users> user, String path)
-+ void saveUserData(ArrayList<Users> user, String path)
++ loadMoviesFromList()
++ loadSeriesFromList()
 }
 
 interface Media {
@@ -30,12 +33,16 @@ stopPlay();
 pausePlay();
 
 }
-abstract MediaData{
-- String name()
-- String genre()
-- int ReleaseYear()
-- int Rating()
 
+abstract MediaData{
+- String name
+- String genre
+- int releaseYear
+- float rating
++ String getName()
++ String getGenre()
++ int getReleaseYear()
++ float getRating()
 
 }
 
@@ -44,28 +51,40 @@ class NetflixMenu {
 - ArrayList<Genre> genreList
 - ArrayList<Movie> movieList
 - ArrayList<Series> seriesList
-- ArrayList<User> userList
-
++ void initializeGenreList()
++ void displayMovieList()
++ void displaySeriesList()
++ void displaySeriesList()
++ void displayGenreList()
++ void displaySearchMedia(TreeSet<MediaData> searchMedia)
++ void searchMedia(String keyword)
++ ArrayList<String> getMoviesList()
++ ArrayList<String> getSeriesList()
 }
 
 class Movie {
++ String toString()
++ int compareTo(MediaData o)
 }
 
 class Genre {
 - ArrayList<String> genre
++ ArrayList<String> getGenre()
++ String mediaWithThisGenre()
 + mediaWithThisGenre()
 }
 
 class Series {
-- ArrayList<String> season
+- ArrayList<String> seasonEpisode
++ ArrayList<String> getSeasonEpisode()
++ String toString()
++ int compareTo(MediaData o)
 }
 
 class Season {
-- ArrayList<String> episode
 }
 
 class Episode {
-
 }
 
 class TextUI {
@@ -75,12 +94,13 @@ class TextUI {
 + void displaySeries(String seriesName, String season, String episode)
 }
 
-Main *--- StartMenu
+Main -- StartMenu
 StartMenu *-- User
-User <|-- NetflixMenu
-NetflixMenu <|-- Movie
-NetflixMenu <|-- Series
-NetflixMenu <|-- Genre
+TextUI *- StartMenu
+User *- NetflixMenu
+NetflixMenu -- Movie
+NetflixMenu -- Series
+NetflixMenu -- Genre
 Genre --> Movie
 Genre --> Series
 Series *-- Season
@@ -88,8 +108,6 @@ Season *-- Episode
 Media *-- Movie
 Media *-- Series
 FileIO *-- User
-TextUI *-- User
-TextUI *-- StartMenu
 MediaData *-- Movie
 MediaData *-- Series
 FileIO *-- MediaData
