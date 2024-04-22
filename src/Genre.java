@@ -31,64 +31,64 @@ public class Genre {
             break;
         case "2":
             System.out.println("Media with Comedy genre");
-            break;
+            return "Comedy";
         case "3":
             System.out.println("Media with War genre");
-            break;
+            return "War";
         case "4":
             System.out.println("Media with Romance genre");
-            break;
+            return "Romance";
         case "5":
             System.out.println("Media with Sport genre");
-            break;
+            return "Sport";
         case "6":
             System.out.println("Media with Crime genre");
-            break;
+            return "Crime";
         case "7":
             System.out.println("Media with Mystery genre");
-            break;
+            return "Mystery";
         case "8":
             System.out.println("Media with Fantasy genre");
-            break;
+            return "Fantasy";
         case "9":
             System.out.println("Media with Science Fiction genre");
-            break;
+            return "Science Fiction";
         case "10":
             System.out.println("Media with Biography genre");
-            break;
+            return "Biography";
         case "11":
             System.out.println("Media with Drama genre");
-            break;
+            return "Drama";
         case "12":
             System.out.println("Media with Adventure genre");
-            break;
+            return "Adventure";
         case "13":
             System.out.println("Media with Family genre");
-            break;
+            return "Family";
         case "14":
             System.out.println("Media with Thriller genre");
-            break;
+            return "Thriller";
         case "15":
             System.out.println("Media with Horror genre");
-            break;
+            return "Horror";
         case "16":
             System.out.println("Media with Film-Noir genre");
-            break;
+            return "Film-Noir";
         case "17":
             System.out.println("Media with Musical genre");
-            break;
+            return "Musical";
         case "18":
             System.out.println("Media with Action genre");
-            break;
+            return "Action";
         case "19":
             System.out.println("Media with Western genre");
-            break;
+            return "Western";
         case "20":
             System.out.println("Media with Animation genre");
-            break;
+            return "Animation";
         case "21":
             System.out.println("Media with Talk show genre");
-            break;
+            return "Talk show";
         default:
             System.out.println("Invalid input");
             break;
