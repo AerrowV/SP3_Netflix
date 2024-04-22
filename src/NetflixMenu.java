@@ -6,12 +6,12 @@ import java.util.*;
 
 public class NetflixMenu {
 
+
     private ArrayList<String> genreList;
 
     private ArrayList<Movie> movieList;
 
     private ArrayList<Series> seriesList;
-
 
     public NetflixMenu() {
         genreList = new ArrayList<>();
@@ -27,27 +27,27 @@ public class NetflixMenu {
 
     public void initializeGenreList() {
 
-        genreList.add("1: " + "History");
-        genreList.add("2: " + "Comedy");
-        genreList.add("3: " + "War");
-        genreList.add("4: " + "Romance");
-        genreList.add("5: " + "Sport");
-        genreList.add("6: " + "Crime");
-        genreList.add("7: " + "Mystery");
-        genreList.add("8: " + "Fantasy");
-        genreList.add("9: " + "Science Fiction");
-        genreList.add("10: " + "Biography");
-        genreList.add("11: " + "Drama");
-        genreList.add("12: " + "Adventure");
-        genreList.add("13: " + "Family");
-        genreList.add("14: " + "Thriller");
-        genreList.add("15: " + "Horror");
-        genreList.add("16: " + "Film-Noir");
-        genreList.add("17: " + "Musical");
-        genreList.add("18: " + "Action");
-        genreList.add("19: " + "Western");
-        genreList.add("20: " + "Animation");
-        genreList.add("21: " + "Talk Show");
+        genreList.add("1: History");
+        genreList.add("2: Comedy");
+        genreList.add("3: War");
+        genreList.add("4: Romance");
+        genreList.add("5: Sport");
+        genreList.add("6: Crime");
+        genreList.add("7: Mystery");
+        genreList.add("8: Fantasy");
+        genreList.add("9: Science Fiction");
+        genreList.add("10: Biography");
+        genreList.add("11: Drama");
+        genreList.add("12: Adventure");
+        genreList.add("13: Family");
+        genreList.add("14: Thriller");
+        genreList.add("15: Horror");
+        genreList.add("16: Film-Noir");
+        genreList.add("17: Musical");
+        genreList.add("18: Action");
+        genreList.add("19: Western");
+        genreList.add("20: Animation");
+        genreList.add("21: Talk Show");
 
     }
 

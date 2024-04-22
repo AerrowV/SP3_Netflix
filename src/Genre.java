@@ -89,4 +89,21 @@ public class Genre {
     }
 return "";
 }
+
+    public void searchGenre(){
+        NetflixMenu menu = new NetflixMenu();
+        String chosenGenre = mediaWithThisGenre();
+
+        for (int i = 0; i < menu.getMovieList().size(); i++) {
+
+            String movieGenre = menu.getMovieList().get(i).genre;
+            String[] genres = movieGenre.split(",");
+
+            for (int j = 0; j < genres.length; j++) {
+                if(genres[j].trim().equals(chosenGenre)){
+                    System.out.println(menu.getMovieList().get(i));
+                }
+            }
+        }
+    }
 }
