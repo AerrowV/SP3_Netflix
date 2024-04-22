@@ -20,15 +20,7 @@ public class Genre {
 
         case "1":
             System.out.println("Media with History genre");
-            /*
-            for(MediaData mediaDataChoice: objekt.getSearchMedia()){
-                mediaDataChoice.equals(objekt2.readFileData("Files/Movie.txt"));
-            }*/
-            //for (int i = 0; i < objekt2.readFileData("Files/Movie.txt").size(); i++) {
-              //  objekt2.readFileData("Files/Movie.txt").trim();
-            //}
-
-            break;
+            return "History";
         case "2":
             System.out.println("Media with Comedy genre");
             return "Comedy";
