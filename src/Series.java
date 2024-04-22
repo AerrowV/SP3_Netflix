@@ -30,7 +30,7 @@ public class Series extends MediaData implements Media{
 
     @Override
     public String toString() {
-        return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating() + " / " + getSeasonEpisode();
+        return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating();
     }
 
     @Override

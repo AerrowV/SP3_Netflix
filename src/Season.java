@@ -5,17 +5,20 @@ public class Season {
     NetflixMenu menu = new NetflixMenu();
 
     ArrayList<Episode> episodes = new ArrayList<Episode>();
-/*
+
+    public Season(String seasonInfo) {
+    }
+
     public void season() {
         for (int i = 0; i < menu.getSeriesList().size(); i++) {
-            String episodeNumber = menu.getSeriesList().get(i).getSeasonEpisode();
-            for (int j = 0; j < episodeNumber.length() ; j++) {
-                String[] epNum = episodeNumber.trim().split(",");
-                System.out.println(epNum[j]);
+            List<String> episodeNumber = menu.getSeriesList().get(i).getSeasonEpisode();
+            for (int j = 0; j < episodeNumber.size() ; j++) {
+                String[] epNum = episodeNumber.get(j).split("-");
+               // episodes.add(new Episode(epNum[1]));
             }
         }
     }
-*/
+
 }
 
    /* public void searchGenre(){

@@ -4,9 +4,12 @@ import java.util.Scanner;
 public class StartMenu {
     TextUI UI = new TextUI();
     User user = new User();
+    NetflixMenu menu = new NetflixMenu();
+    Genre genre = new Genre();
+    Scanner scan = new Scanner(System.in);
 
     public void loginAndSignUp() {
-        Scanner scan = new Scanner(System.in);
+
 
         while (true) {
            String userInput = UI.greetingMessage();
@@ -17,6 +20,7 @@ public class StartMenu {
 
                 if (user.getAccountInfo(email, password)) {
                     UI.displayMsg("Login successful!");
+                    userInterface(); //- This is the interFace for the next menu
                 } else {
                     UI.displayMsg("Invalid login. Please try again.");
                 }
@@ -40,4 +44,32 @@ public class StartMenu {
 
         scan.close();
     }
+
+    public void userInterface() {
+        while (true) {
+            String userInput = UI.greetingFromMenu();
+
+            if ("1".equals(userInput)) {
+//Search media WORKS
+                UI.displayMsg("Search media now");
+                menu.searchMedia(UI.userInput());
+
+//todo Genre doesn't WORK
+            }else if ("2".equals(userInput)) {
+                UI.displayMsg("Velkommen til Genre listen");
+                genre.searchGenre();
+
+            }else if ("3".equals(userInput)) {
+                break;
+            } else {
+                UI.displayMsg("Invalid option. Please enter 1, 2, or 3.");
+
+            }
+
+        }
+        scan.close();
+    }
+
+
+
 }

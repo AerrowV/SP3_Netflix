@@ -36,6 +36,17 @@ public class FileIO {
                     String genre = values[2].trim();
                     float rating = Float.parseFloat(values[3].trim());
                     ArrayList<String> seasonEpisode = new ArrayList<>(List.of(values[4].split(",")));
+                    ArrayList<Season> seasons = new ArrayList<>();
+                    for (String seasonInfo : seasonEpisode) {
+                        Season season = new Season(seasonInfo);
+                        seasons.add(season);
+
+                    }
+                    //arraylist af season objekter
+                    //for hvert item i seasonEpisode
+                    //new Season objekt
+                    //tilføj season objekt til liste
+                    //for hvert season objekt opret nye episode objekter og tilføj til relevant liste
                     seriesList.add(new Series(name, releaseDate, genre, rating, seasonEpisode));
                 }
             }
