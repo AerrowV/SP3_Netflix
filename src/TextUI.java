@@ -1,8 +1,9 @@
-import java.util.Scanner;
-
 public class TextUI {
     Scanner sc = new Scanner(System.in);
+    private ArrayList<String> genreList;
 
+
+    //metode til at kalde en besked
     public void displayMsg(String msg) {
         System.out.println(msg);
 
@@ -44,6 +45,16 @@ public class TextUI {
         System.out.println("Type Password:");
         String newPassword = sc.nextLine();
         return newPassword;
+    }
+
+
+    public void askForGenre(){
+        NetflixMenu menu = new NetflixMenu();
+        System.out.println("Choose your genre below:");
+        System.out.println(menu.getGenreList());
+
+
+
     }
 
 }
