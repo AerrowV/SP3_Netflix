@@ -62,7 +62,7 @@ public class StartMenu {
             }else if ("3".equals(userInput)) {
                 break;
             } else {
-                UI.displayMsg("Invalid option. Please enter 1, 2, or 3.");
+                UI.displayMsg("Invalid option. Please enter 1, 2, or 3 etc. ");
 
             }
 

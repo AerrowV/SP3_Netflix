@@ -120,7 +120,6 @@ return "";
         String chosenGenre = mediaWithThisGenre();
 
         for (int i = 0; i < menu.getMovieList().size(); i++) {
-
             String movieGenre = menu.getMovieList().get(i).genre;
             String[] genres = movieGenre.split(",");
 

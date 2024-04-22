@@ -15,7 +15,7 @@ public class TextUI {
 
     public String greetingMessage() {
         System.out.println("***********************");
-        System.out.println("Velkommen Til Netflix!");
+        System.out.println("Welcome to GFlix!");
         System.out.println("***********************");
         System.out.println("1) Login");
         System.out.println("2) Register");
@@ -39,13 +39,13 @@ public class TextUI {
 
     public String messageGetRegisterEmail() {
         System.out.println("Register new user");
-        System.out.println("Type Email:");
+        System.out.println("Type email:");
         String newEmail = sc.nextLine();
         return newEmail;
     }
 
     public String messageGetRegisterPassword() {
-        System.out.println("Type Password:");
+        System.out.println("Type password:");
         String newPassword = sc.nextLine();
         return newPassword;
     }
@@ -53,7 +53,7 @@ public class TextUI {
 
     public void askForGenre() {
         NetflixMenu menu = new NetflixMenu();
-        System.out.println("Choose your genre below:");
+        System.out.println("Choose your category below:");
         System.out.println(menu.getGenreList());
 
 
@@ -62,10 +62,10 @@ public class TextUI {
 
     public String greetingFromMenu() {
         System.out.println("***********************");
-        System.out.println("Velkommen Til Netflix Menu!");
+        System.out.println("Welcome to GFlix Menu");
         System.out.println("***********************");
-        System.out.println("1) Search Media");
-        System.out.println("2) Search Genre");
+        System.out.println("1) Search media");
+        System.out.println("2) Search category");
         System.out.println("3) Exit");
         System.out.print("Choose an option: ");
         String userInput = sc.nextLine();
