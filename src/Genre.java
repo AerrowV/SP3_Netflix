@@ -123,6 +123,7 @@ return "";
             String movieGenre = menu.getMovieList().get(i).genre;
             String[] genres = movieGenre.split(",");
 
+            // Fejlen med searchGenre ligger højst sandsynligt her
             for (int j = 0; j < genres.length; j++) {
                 if(genres[j].trim().equals(chosenGenre)){
                     System.out.println(menu.getMovieList().get(i));
