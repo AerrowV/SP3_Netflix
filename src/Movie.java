@@ -21,6 +21,11 @@ public class Movie extends MediaData implements Media {
     }
 
     @Override
+    public void play() {
+        System.out.println("Playing movie: " + getName());
+    }
+
+    @Override
     public String toString() {
         return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating();
     }

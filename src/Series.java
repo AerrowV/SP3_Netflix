@@ -29,6 +29,12 @@ public class Series extends MediaData implements Media{
     }
 
     @Override
+    public void play() {
+        System.out.println("Playing series: " + getName());
+    }
+
+
+    @Override
     public String toString() {
         return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating();
     }

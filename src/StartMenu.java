@@ -21,6 +21,7 @@ public class StartMenu {
                 if (user.getAccountInfo(email, password)) {
                     UI.displayMsg("Login successful!");
                     userInterface(); //- This is the interFace for the next menu
+
                 } else {
                     UI.displayMsg("Invalid login. Please try again.");
                 }
@@ -50,26 +51,33 @@ public class StartMenu {
             String userInput = UI.greetingFromMenu();
 
             if ("1".equals(userInput)) {
-//Search media WORKS
-                UI.displayMsg("Search media now");
+
+                UI.displayMsg("Search media");
                 menu.searchMedia(UI.userInput());
 
-//todo Genre doesn't WORK
             }else if ("2".equals(userInput)) {
-                UI.displayMsg("Velkommen til Genre listen");
+                UI.displayMsg("Please choose a genre");
                 genre.searchGenre();
 
-            }else if ("3".equals(userInput)) {
+        /*    }else if ("3".equals(userInput)) {
+                menu.displayMovieList();
+
+            } else if ("4".equals(userInput)) {
+                UI.displayMsg("Please choose a series");
+                menu.displaySeriesList();
+*/
+             }else if ("5".equals(userInput)) {
+                    UI.displayMsg("Exiting the program...");
                 break;
             } else {
                 UI.displayMsg("Invalid option. Please enter 1, 2, or 3 etc. ");
-
             }
-
+            scan.close();
         }
-        scan.close();
     }
 
+    public void isPlaying() {
+    }
 
 
 }
