@@ -72,7 +72,6 @@ public class StartMenu {
             } else {
                 UI.displayMsg("Invalid option. Please enter 1, 2, or 3 etc. ");
             }
-            scan.close();
         }
     }
 
