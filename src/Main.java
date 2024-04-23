@@ -6,7 +6,7 @@ public class Main {
 
         // Season season = new Season();
 
-        // startMenu.loginAndSignUp();
+        startMenu.loginAndSignUp();
 
         // netflixMenu.displayMovieList();
 
