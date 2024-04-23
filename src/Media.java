@@ -5,4 +5,6 @@ public interface Media {
     void stopPlay();
 
     void pausePlay();
+
+    void play();
 }

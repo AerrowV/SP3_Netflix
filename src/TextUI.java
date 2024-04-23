@@ -6,6 +6,8 @@ public class TextUI{
     private ArrayList<String> genreList;
     Genre g = new Genre();
     Movie movie = new Movie("",null,"",0);
+    NetflixMenu menu= new NetflixMenu();
+
 
     //metode til at kalde en besked
     public void displayMsg(String msg) {
@@ -53,10 +55,8 @@ public class TextUI{
 
 
     public void askForGenre() {
-        NetflixMenu menu = new NetflixMenu();
         System.out.println("Choose your category below:");
-        System.out.println(menu.getGenreList());
-
+        menu.displayGenreList();
 
     }
 
@@ -67,7 +67,9 @@ public class TextUI{
         System.out.println("***********************");
         System.out.println("1) Search media");
         System.out.println("2) Search category");
-        System.out.println("3) Exit");
+        System.out.println("3) Movies");
+        System.out.println("4) Series");
+        System.out.println("5) Exit");
         System.out.print("Choose an option: ");
         String userInput = sc.nextLine();
         return userInput;
@@ -77,6 +79,8 @@ public class TextUI{
     public String userInput() {
         return sc.nextLine();
     }
+
+
 
 
 

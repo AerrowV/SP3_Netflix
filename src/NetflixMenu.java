@@ -2,7 +2,7 @@ import java.util.*;
 
 public class NetflixMenu {
 
-    private int highNumber;
+    private int highNumber = 5;
 
     private int lowNumber;
 
@@ -11,6 +11,10 @@ public class NetflixMenu {
     private ArrayList<Movie> movieList;
 
     private ArrayList<Series> seriesList;
+
+    Scanner scan = new Scanner(System.in);
+
+
 
     public NetflixMenu() {
         genreList = new ArrayList<>();
@@ -52,41 +56,18 @@ public class NetflixMenu {
 
     public void displayMovieList() {
         boolean key = false;
+        StartMenu menu = new StartMenu();
 
         while(!key) {
-            Scanner scan = new Scanner(System.in);
-            String userInput = scan.nextLine();
-            switch (userInput) {
-                case "1" -> this.highNumber += 5;
-                case "2" -> {
-                    if (this.lowNumber > 5) {
-                    this.highNumber -= 5;
-                    this.lowNumber -= 10;
-                } else {
-                        System.out.println("You can't go any further back");
-                    }
-                }
-                case "3" -> {
-                    this.highNumber = 5;
-                    this.lowNumber = 0;
-                }
-                case "4" -> key = true;
-                default -> System.out.println("Invalid input");
-            }
 
             for (int i = 0; lowNumber < highNumber; lowNumber++) {
                 System.out.println(movieList.get(lowNumber).toString());
             }
-        }
-    }
 
-    public void displaySeriesList() {
-        boolean key = false;
-
-        while(!key) {
-            Scanner scan = new Scanner(System.in);
+            System.out.println("\nType '1' for next page" + "\nType '2' for previous page" + "\nType '3' to return to first page" + "\nType '4' to return to menu");
             String userInput = scan.nextLine();
             switch (userInput) {
+
                 case "1" -> this.highNumber += 5;
                 case "2" -> {
                     if (this.lowNumber > 5) {
@@ -100,16 +81,55 @@ public class NetflixMenu {
                     this.highNumber = 5;
                     this.lowNumber = 0;
                 }
-                case "4" -> key = true;
+                case ("4") -> {
+                    menu.userInterface();
+                    key = true;
+                }
                 default -> System.out.println("Invalid input");
+
             }
+
+        }
+
+    }
+
+    public void displaySeriesList() {
+        boolean key = false;
+        StartMenu menu = new StartMenu();
+
+        while(!key) {
 
             for (int i = 0; lowNumber < highNumber; lowNumber++) {
                 System.out.println(seriesList.get(lowNumber).toString());
             }
-        }
-    }
 
+            System.out.println("\nType '1' for next page" + "\nType '2' for previous page" + "\nType '3' to return to first page" + "\nType '4' to return to menu");
+            String userInput = scan.nextLine();
+            switch (userInput) {
+
+                case "1" -> this.highNumber += 5;
+                case "2" -> {
+                    if (this.lowNumber > 5) {
+                        this.highNumber -= 5;
+                        this.lowNumber -= 10;
+                    } else {
+                        System.out.println("You can't go any further back");
+                    }
+                }
+                case "3" -> {
+                    this.highNumber = 5;
+                    this.lowNumber = 0;
+                }
+                case "4" -> {
+                    menu.userInterface();
+                    key = true;
+                }
+
+                default -> System.out.println("Invalid input");
+            }
+        }
+
+    }
     public void displayGenreList() {
         for (String g : genreList) {
             System.out.println(g);
@@ -119,9 +139,9 @@ public class NetflixMenu {
     public void displaySearchMedia(TreeSet<MediaData> searchMedia) {
         for (MediaData md : searchMedia) {
             System.out.println(md);
+
         }
     }
-
     public void searchMedia(String keyword) {
 
         TreeSet<MediaData> set = new TreeSet<>();

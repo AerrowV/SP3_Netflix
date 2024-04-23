@@ -56,7 +56,7 @@ public class StartMenu {
 
 //todo Genre doesn't WORK
             }else if ("2".equals(userInput)) {
-                UI.displayMsg("Welcome to the list of genres.");
+                UI.displayMsg("Velkommen til Genre listen");
                 genre.searchGenre();
 
             }else if ("3".equals(userInput)) {
