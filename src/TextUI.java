@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TextUI {
+public class TextUI{
     Scanner sc = new Scanner(System.in);
     private ArrayList<String> genreList;
-
+    Genre g = new Genre();
+    Movie movie = new Movie("",null,"",0);
 
     //metode til at kalde en besked
     public void displayMsg(String msg) {
@@ -76,6 +77,9 @@ public class TextUI {
     public String userInput() {
         return sc.nextLine();
     }
+
+
+
 
 
 }
