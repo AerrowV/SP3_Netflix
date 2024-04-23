@@ -59,13 +59,13 @@ public class StartMenu {
                 UI.displayMsg("Please choose a genre");
                 genre.searchGenre();
 
-        /*    }else if ("3".equals(userInput)) {
+           }else if ("3".equals(userInput)) {
                 menu.displayMovieList();
 
             } else if ("4".equals(userInput)) {
                 UI.displayMsg("Please choose a series");
                 menu.displaySeriesList();
-*/
+
              }else if ("5".equals(userInput)) {
                     UI.displayMsg("Exiting the program...");
                 break;
