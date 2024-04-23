@@ -76,6 +76,7 @@ public class StartMenu {
     }
 
     public void isPlaying() {
+
     }
 
 

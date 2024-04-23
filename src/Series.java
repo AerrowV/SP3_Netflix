@@ -3,9 +3,10 @@ import java.util.ArrayList;
 public class Series extends MediaData implements Media{
     private ArrayList<Season> seasonEpisode;
 
-    public Series(String name, String releaseYear, String genre, float rating, ArrayList<Season> seasonEpisode) {
-        super(name, genre, releaseYear, rating);
+    public Series(String name, String releaseYear, String genre, float rating, ArrayList<Season> seasonEpisode, int ID) {
+        super(name, genre, releaseYear, rating, ID);
         this.seasonEpisode = seasonEpisode;
+
 
     }
 
@@ -36,7 +37,7 @@ public class Series extends MediaData implements Media{
 
     @Override
     public String toString() {
-        return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating();
+        return super.ID + ":" +  " / " + getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating();
     }
 
     @Override

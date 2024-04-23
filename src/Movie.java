@@ -1,7 +1,7 @@
 public class Movie extends MediaData implements Media {
 
-    public Movie(String name, String releaseYear, String genre, float rating) {
-        super(name, genre, releaseYear, rating);
+    public Movie(String name, String releaseYear, String genre, float rating, int ID) {
+        super(name, genre, releaseYear, rating, ID);
 
     }
 
@@ -27,7 +27,7 @@ public class Movie extends MediaData implements Media {
 
     @Override
     public String toString() {
-        return getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating();
+        return super.ID + ":" +  " / " +getName() + " / " + getReleaseYear() +  " / "  + getGenre()  + " / " + getRating();
     }
 
     @Override

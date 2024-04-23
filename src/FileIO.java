@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class FileIO {
 
+    int counter = 1;
+
     public void loadMoviesFromList(String path, ArrayList<Movie> movieList) {
         try (Scanner scanner = new Scanner(new File(path))) {
             while (scanner.hasNextLine()) {
@@ -15,7 +17,7 @@ public class FileIO {
                     String releaseDate = values[1].trim();
                     String genre = values[2].trim();
                     float rating = Float.parseFloat(values[3].trim());
-                    movieList.add(new Movie(name, releaseDate, genre, rating));
+                    movieList.add(new Movie(name, releaseDate, genre, rating, counter++));
                 }
             }
         } catch (FileNotFoundException e) {
@@ -40,7 +42,7 @@ public class FileIO {
                     for (String seasonInfo : seasonEpisode) {
                         seasons.add(new Season(seasonInfo.trim()));
                     }
-                    seriesList.add(new Series(name, releaseDate, genre, rating, seasons));
+                    seriesList.add(new Series(name, releaseDate, genre, rating, seasons, counter++));
                 }
             }
         } catch (FileNotFoundException e) {

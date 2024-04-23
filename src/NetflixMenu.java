@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.*;
 
 public class NetflixMenu {
@@ -56,7 +57,7 @@ public class NetflixMenu {
         boolean key = false;
         StartMenu menu = new StartMenu();
 
-        while(!key) {
+        while (!key) {
 
             for (int i = 0; lowNumber < highNumber; lowNumber++) {
                 System.out.println(movieList.get(lowNumber).toString());
@@ -95,7 +96,7 @@ public class NetflixMenu {
         boolean key = false;
         StartMenu menu = new StartMenu();
 
-        while(!key) {
+        while (!key) {
 
             for (int i = 0; lowNumber < highNumber; lowNumber++) {
                 System.out.println(seriesList.get(lowNumber).toString());
@@ -128,6 +129,7 @@ public class NetflixMenu {
         }
 
     }
+
     public void displayGenreList() {
         for (String g : genreList) {
             System.out.println(g);
@@ -140,6 +142,7 @@ public class NetflixMenu {
 
         }
     }
+
     public void searchMedia(String keyword) {
 
         TreeSet<MediaData> set = new TreeSet<>();
@@ -157,6 +160,7 @@ public class NetflixMenu {
 
         displaySearchMedia(set);
     }
+
     public ArrayList<Movie> getMovieList() {
         return movieList;
     }
@@ -165,9 +169,12 @@ public class NetflixMenu {
         return seriesList;
     }
 
-    public ArrayList<String> getGenreList(){
+    public ArrayList<String> getGenreList() {
         return genreList;
     }
+
+
+
 }
 
 
