@@ -1,4 +1,4 @@
-public abstract class MediaData implements Comparable<MediaData>{
+ public abstract class MediaData implements Comparable<MediaData>{
 
     String name;
     String genre;

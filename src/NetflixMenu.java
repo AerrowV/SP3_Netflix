@@ -14,8 +14,6 @@ public class NetflixMenu {
 
     Scanner scan = new Scanner(System.in);
 
-
-
     public NetflixMenu() {
         genreList = new ArrayList<>();
         movieList = new ArrayList<>();
