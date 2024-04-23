@@ -1,11 +1,10 @@
-import javax.swing.plaf.FontUIResource;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class NetflixMenu {
 
+    private int highNumber;
+
+    private int lowNumber;
 
     private ArrayList<String> genreList;
 
@@ -52,15 +51,62 @@ public class NetflixMenu {
     }
 
     public void displayMovieList() {
-        for (Movie m : movieList) {
-            System.out.println(m);
+        boolean key = false;
+
+        while(!key) {
+            Scanner scan = new Scanner(System.in);
+            String userInput = scan.nextLine();
+            switch (userInput) {
+                case "1" -> this.highNumber += 5;
+                case "2" -> {
+                    if (this.lowNumber > 5) {
+                    this.highNumber -= 5;
+                    this.lowNumber -= 10;
+                } else {
+                        System.out.println("You can't go any further back");
+                    }
+                }
+                case "3" -> {
+                    this.highNumber = 5;
+                    this.lowNumber = 0;
+                }
+                case "4" -> key = true;
+                default -> System.out.println("Invalid input");
+            }
+
+            for (int i = 0; lowNumber < highNumber; lowNumber++) {
+                System.out.println(movieList.get(lowNumber).toString());
+            }
         }
     }
 
-
     public void displaySeriesList() {
-        for (Series s : seriesList) {
-            System.out.println(s);
+        boolean key = false;
+
+        while(!key) {
+            Scanner scan = new Scanner(System.in);
+            String userInput = scan.nextLine();
+            switch (userInput) {
+                case "1" -> this.highNumber += 5;
+                case "2" -> {
+                    if (this.lowNumber > 5) {
+                        this.highNumber -= 5;
+                        this.lowNumber -= 10;
+                    } else {
+                        System.out.println("You can't go any further back");
+                    }
+                }
+                case "3" -> {
+                    this.highNumber = 5;
+                    this.lowNumber = 0;
+                }
+                case "4" -> key = true;
+                default -> System.out.println("Invalid input");
+            }
+
+            for (int i = 0; lowNumber < highNumber; lowNumber++) {
+                System.out.println(seriesList.get(lowNumber).toString());
+            }
         }
     }
 
