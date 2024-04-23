@@ -5,7 +5,7 @@ public class TextUI{
     Scanner sc = new Scanner(System.in);
     private ArrayList<String> genreList;
     Genre g = new Genre();
-    Movie movie = new Movie("",null,"",0);
+    Movie movie = new Movie("",null,"",0, 0);
     NetflixMenu menu= new NetflixMenu();
 
 

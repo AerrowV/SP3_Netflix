@@ -1,16 +1,18 @@
  public abstract class MediaData implements Comparable<MediaData>{
 
-    String name;
-    String genre;
-    String releaseYear;
-    float rating;
+    private String name;
+    private String genre;
+    private String releaseYear;
+    private float rating;
+    protected int ID;
 
 
-    public MediaData(String name, String genre, String releaseYear, float rating) {
+    public MediaData(String name, String genre, String releaseYear, float rating, int ID) {
         this.name = name;
         this.genre = genre;
         this.releaseYear = releaseYear;
         this.rating = rating;
+        this.ID = ID;
 
     }
 
@@ -30,4 +32,9 @@
         return rating;
     }
 
-}
+     public int getID() {
+         return ID;
+     }
+
+
+ }
