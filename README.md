@@ -6,4 +6,4 @@ Johan Nikolaj Poulsen - cph-jp471@cphbusiness.dk
 
 Lasse Hansen - cph-lh546@cphbusiness.dk
 
-Jeppe -
+Jeppe Høst - cph-jt239@cphbusiness.dk
