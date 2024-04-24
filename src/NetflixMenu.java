@@ -150,7 +150,7 @@ public class NetflixMenu {
     }
 
     public void searchMedia(String keyword) {
-        NetflixMenu menu = new NetflixMenu();
+        TextUI ui = new TextUI();
         TreeSet<MediaData> set = new TreeSet<>();
         for (Movie movie : movieList) {
             if (movie.getName().toLowerCase().contains(keyword.toLowerCase())) {
@@ -163,16 +163,23 @@ public class NetflixMenu {
                 set.add(series);
             }
         }
-
-        displaySearchMedia(set);
-        selectMedie();
+        if(set.isEmpty()) {
+            ui.displayMsg("There are no movies/series matching your search on this platform\nPlease search for something else");
+            String userInput = ui.userInput();
+            searchMedia(userInput);
+        } else {
+            displaySearchMedia(set);
+            selectMedie();
+        }
     }
+
 
     public void selectMedie(){
         TextUI ui = new TextUI();
         NetflixMenu menu = new NetflixMenu();
-        ui.displayMsg("Please select the movie number above");
+        ui.displayMsg("Please select a number above");
         String userChoice = ui.userInput();
+
         if(Integer.parseInt(userChoice) < 101) {
             Movie movie = menu.selectMovie(userChoice);
             movie.movieOptions();
