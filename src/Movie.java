@@ -19,7 +19,7 @@ public class Movie extends MediaData implements Media {
             switch (userChoise) {
                 case "1":
                     play();
-                    user.writerSeenMoviesList(this.getName());
+                    //user.writerSeenMoviesList(this.getName());
                     break;
                 case "2":
                     stopPlay();
