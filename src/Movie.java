@@ -19,7 +19,6 @@ public class Movie extends MediaData implements Media {
             switch (userChoise) {
                 case "1":
                     play();
-                    user.writerSeenMoviesList(this.getName());
                     break;
                 case "2":
                     stopPlay();
@@ -34,6 +33,7 @@ public class Movie extends MediaData implements Media {
                    user.writerWatchLaterAndWatchList(this.getName());
                     break;
                 case "6":
+                    user.writerSeenMoviesList(this.getName());
                     startMenu.userInterface();
                     whileKey = false;
             }
