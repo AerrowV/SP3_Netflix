@@ -53,11 +53,12 @@ public class FileIO {
         } catch (NumberFormatException e) {
             System.out.println("Error parsing float");
         }
+
     }
 
     public void createAccount(String email, String password) {
         try (FileWriter writer = new FileWriter(userDataFile, true)) {
-            writer.write(email + ";" + password + ";" + "temp" + ";" + "temp" +"\n");
+            writer.write(email + ";" + password + ";" + " " + ";" + " " +"\n");
         } catch (IOException e) {
             System.out.println("Failed to register user");
         }

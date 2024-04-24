@@ -37,7 +37,9 @@ public class User {
                 for (int i = 0; i < index.length; i++) {
                     temp.add(index[i]);
                 }
-                temp.set(2,watchLater);
+                String temp2 = temp.get(2);
+                temp2 = temp2 + ":" + watchLater;
+                temp.set(2,temp2);
 
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < temp.size(); i++) {
@@ -56,6 +58,26 @@ public class User {
 break;
             }
 
+        } catch (IOException e) {
+            System.out.println("Failed to add to watch later");
+        }
+    }
+
+    public void displaySavedMovies() {
+        try (Scanner sc = new Scanner(new FileReader(userDataFile))) {
+
+            List<String> temp = new ArrayList<>();
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                String[] index = line.split(";");
+                for (int i = 0; i < index.length; i++) {
+                    temp.add(index[i]);
+                }
+                for (int i = 0; i < temp.size(); i++) {
+                    System.out.println(temp.get(i));
+                }
+                break;
+            }
         } catch (IOException e) {
             System.out.println("Failed to add to watch later");
         }
@@ -93,5 +115,4 @@ break;
             System.out.println("Failed to add to watch later");
         }
     }
-
     }

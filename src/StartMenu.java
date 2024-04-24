@@ -11,7 +11,6 @@ public class StartMenu {
 
     public void loginAndSignUp() {
 
-
         while (true) {
            String userInput = UI.greetingMessage();
 
@@ -65,8 +64,12 @@ public class StartMenu {
                 menu.displaySeriesList();
 
              }else if ("5".equals(userInput)) {
+                User user = new User();
+                UI.displayMsg("Saved list");
+                user.displaySavedMovies();
+            } else if ("6".equals(userInput)) {
                     UI.displayMsg("Exiting the program...");
-                break;
+                    loginAndSignUp();
             } else {
                 UI.displayMsg("Invalid option. Please enter 1, 2, or 3 etc. ");
             }
