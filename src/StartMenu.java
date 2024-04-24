@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class StartMenu {
     TextUI UI = new TextUI();
+    FileIO IO = new FileIO();
     User user = new User();
     NetflixMenu menu = new NetflixMenu();
     Genre genre = new Genre();
@@ -18,7 +19,7 @@ public class StartMenu {
               String email =  UI.messageGetUserEmail();
                 String password = UI.messageGetUserPassword();
 
-                if (user.getAccountInfo(email, password)) {
+                if (IO.getAccountInfo(email, password)) {
                     UI.displayMsg("Login successful!");
                     userInterface(); //- This is the interFace for the next menu
 
@@ -29,8 +30,8 @@ public class StartMenu {
                String newEmail = UI.messageGetRegisterEmail();
                String newPassword = UI.messageGetRegisterPassword();
 
-                if (!user.DoesUserExist(newEmail)) {
-                    user.createAccount(newEmail, newPassword);
+                if (!IO.DoesUserExist(newEmail)) {
+                    IO.createAccount(newEmail, newPassword);
                     UI.displayMsg("User registered successfully!");
                 } else {
                     UI.displayMsg("Email already registered!");

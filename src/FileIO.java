@@ -7,6 +7,8 @@ public class FileIO {
 
     int counter = 1;
 
+    private String userDataFile = "Files/UserAccountData";
+
     public void loadMoviesFromList(String path, ArrayList<Movie> movieList) {
         try (Scanner scanner = new Scanner(new File(path))) {
             while (scanner.hasNextLine()) {
@@ -49,7 +51,47 @@ public class FileIO {
             System.out.println("File not found");
 
         } catch (NumberFormatException e) {
-                System.out.println("Error parsing float");
-            }
+            System.out.println("Error parsing float");
         }
     }
+
+    public void createAccount(String email, String password) {
+        try (FileWriter writer = new FileWriter(userDataFile, true)) {
+            writer.write(email + ";" + password + "\n");
+        } catch (IOException e) {
+            System.out.println("Failed to register user");
+        }
+    }
+
+    public boolean getAccountInfo(String email, String password) {
+        try (Scanner scanner = new Scanner(new FileReader(userDataFile))) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] index = line.split(";");
+                if (index[0].equals(email) && index[1].equals(password)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Failed to check credentials");
+        }
+        return false;
+    }
+
+    public boolean DoesUserExist(String email) {
+        try (Scanner scanner = new Scanner(new FileReader(userDataFile))) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] index = line.split(";");
+                if (index[0].equals(email)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("User doesn't exist");
+        }
+        return false;
+    }
+}
+
+

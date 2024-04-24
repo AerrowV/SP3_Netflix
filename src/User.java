@@ -11,7 +11,7 @@ public class User {
     private ArrayList<String> watchedMovies;
     private ArrayList<String> watchedSeries;
     private LinkedList<String> saveList;
-    private String userDataFile = "Files/UserAccountData";
+
 
     public User() {
         this.selectedMovie = selectedMovie;
@@ -19,29 +19,6 @@ public class User {
         this.saveList = saveList;
         this.watchedMovies = new ArrayList<>();
         this.watchedSeries = new ArrayList<>();
-    }
-
-    public void createAccount(String email, String password) {
-        try (FileWriter writer = new FileWriter(userDataFile, true)) {
-            writer.write(email + ";" + password + "\n");
-        } catch (IOException e) {
-            System.out.println("Failed to register user");
-        }
-    }
-
-    public boolean getAccountInfo(String email, String password) {
-        try (Scanner scanner = new Scanner(new FileReader(userDataFile))) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] index = line.split(";");
-                if (index[0].equals(email) && index[1].equals(password)) {
-                    return true;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Failed to check credentials");
-        }
-        return false;
     }
 
     public boolean DoesUserExist(String email) {
@@ -58,4 +35,6 @@ public class User {
         }
         return false;
     }
+}
+
 }
