@@ -14,9 +14,6 @@ public class Series extends MediaData implements Media {
 
     }
 
-    public ArrayList<Season> getSeasonEpisode() {
-        return seasonEpisode;
-    }
 
     @Override
     public void resumePlay() {

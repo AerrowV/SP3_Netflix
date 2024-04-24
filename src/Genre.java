@@ -3,14 +3,9 @@ import java.util.Scanner;
 import java.util.TreeSet;
 
 public class Genre {
-    private ArrayList<String> genre = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     NetflixMenu menu = new NetflixMenu();
 
-
-    public ArrayList<String> getGenre() {
-        return genre;
-    }
 
 
     public String mediaWithThisGenre() {

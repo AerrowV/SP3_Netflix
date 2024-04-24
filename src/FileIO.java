@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class FileIO {
 
-    int counter = 1;
+    private int counter = 1;
 
     private String userDataFile = "Files/UserAccountData";
 

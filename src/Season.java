@@ -15,16 +15,6 @@ public class Season {
     }
 
 
-    public ArrayList<Episode> getEpisodes() {
-        return episodes;
-    }
-
-
-    public String getSeasonNumber() {
-        return seasonNumber;
-
-    }
-
     @Override
     public String toString() {
         return seasonNumber;

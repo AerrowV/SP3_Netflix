@@ -6,7 +6,7 @@ public class NetflixMenu {
 
     private int lowNumber;
 
-    private ArrayList<String> genreList;
+    public ArrayList<String> genreList;
 
     private ArrayList<Movie> movieList;
 
@@ -15,9 +15,9 @@ public class NetflixMenu {
     Scanner scan = new Scanner(System.in);
 
     public NetflixMenu() {
-        genreList = new ArrayList<>();
         movieList = new ArrayList<>();
         seriesList = new ArrayList<>();
+        genreList = new ArrayList<>();
 
         FileIO fileIO = new FileIO();
         fileIO.loadMoviesFromList("Files/Movie.txt", movieList);
@@ -25,6 +25,8 @@ public class NetflixMenu {
         initializeGenreList();
 
     }
+
+
 
     public void initializeGenreList() {
 
@@ -210,6 +212,8 @@ public class NetflixMenu {
         return seriesList.get(Integer.parseInt(userChoice)-101);
 
     }
+
+
 
 }
 
