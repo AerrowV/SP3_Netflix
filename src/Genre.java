@@ -141,6 +141,7 @@ public class Genre {
             menu.selectMedia();
         } else {
             System.out.println("There are no movies or series in this genre: " + chosenGenre);
+
         }
     }
 }

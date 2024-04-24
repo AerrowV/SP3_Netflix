@@ -11,6 +11,7 @@ class Main{
 
 class StartMenu {
 + loginAndSignUp()
++ void userInterface()
 
 }
 
@@ -20,22 +21,25 @@ class User {
 - ArrayList<Movie> watchedMovies
 - ArrayList<Series> watchedSeries
 - LinkedList<String> saveList
-- String userDataFile
-+ createAccount()
-+ getAccountInfo()
-+ doesUserExist()
++ void writerSaveList(String saveList)
++ void writerWatchLaterAndWatchList(String watchLater)
 }
 
 class FileIO {
-+ loadMoviesFromList()
-+ loadSeriesFromList()
+- int counter
+- String userDataFile
++ void loadMoviesFromList()
++ void loadSeriesFromList()
++ void createAccount()
++ boolean getAccountInfo()
++ boolean doesUserExist()
 }
 
 interface Media {
 resumePlay();
 stopPlay();
 pausePlay();
-
+play();
 }
 
 abstract MediaData{
@@ -43,52 +47,70 @@ abstract MediaData{
 - String genre
 - int releaseYear
 - float rating
+# int ID
 + String getName()
 + String getGenre()
 + int getReleaseYear()
 + float getRating()
++ int getID()
 
 }
 
 class NetflixMenu {
-- TreeSet<MediaList> searchMedia
+- int highNumber = 5
+- int lowNumber
 - ArrayList<Genre> genreList
 - ArrayList<Movie> movieList
 - ArrayList<Series> seriesList
+- Scanner scan
 + void initializeGenreList()
 + void displayMovieList()
-+ void displaySeriesList()
 + void displaySeriesList()
 + void displayGenreList()
 + void displaySearchMedia(TreeSet<MediaData> searchMedia)
 + void searchMedia(String keyword)
++ void selectMedia
 + ArrayList<String> getMoviesList()
 + ArrayList<String> getSeriesList()
++ Movie selectMovie(String userChoice)
++ Series selectSeries(String userChoice)
 }
 
 class Movie {
 + String toString()
 + int compareTo(MediaData o)
++ void movieOption()
 }
 
 class Genre {
-- ArrayList<String> genre
-+ ArrayList<String> getGenre()
+- Scanner scan
 + String mediaWithThisGenre()
-+ mediaWithThisGenre()
++ void searchGenre()
 }
 
 class Series {
-- ArrayList<String> seasonEpisode
-+ ArrayList<String> getSeasonEpisode()
+- int currentEpisode
+- int currentSeason
+- int seasonSize
+- ArrayList<Season> seasonEpisode
++ void nextEpisode
++ void seasonInitializer()
++ void selectEpisode()
++ void seriesOptions()
++ Season selectSeason()
 + String toString()
 + int compareTo(MediaData o)
 }
 
 class Season {
+- String seasonNumber
+- ArrayList<Episode> episodes
++ String toString()
 }
 
 class Episode {
+- int episodeNumber
++ String toString()
 }
 
 class TextUI {
@@ -96,6 +118,14 @@ class TextUI {
 + void displayMsg()
 + void displayMovie(String movieName)
 + void displaySeries(String seriesName, String season, String episode)
++ String greetingMessage()
++ String messageGetUserEmail()
++ String messageGetUserPassword()
++ String messageGetRegisterEmail()
++ String messageGetRegisterPassowrd()
++ void askForGenre()
++ String greetingFromMenu()
++ String userInput()
 }
 
 Main -- StartMenu
