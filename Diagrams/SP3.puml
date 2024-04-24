@@ -10,8 +10,10 @@ class Main{
 }
 
 class StartMenu {
+- boolean isLoggedIn
 + loginAndSignUp()
 + void userInterface()
++ void run()
 
 }
 
