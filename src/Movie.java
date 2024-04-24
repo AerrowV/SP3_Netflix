@@ -11,7 +11,8 @@ public class Movie extends MediaData implements Media {
         boolean whileKey = true;
         TextUI ui = new TextUI();
         StartMenu startMenu = new StartMenu();
-        ui.displayMsg("1: Play movie\n2: Stop movie\n3: Pause movie\n4: Resume\n5: Back to menu");
+        User user = new User();
+        ui.displayMsg("1: Play movie\n2: Stop movie\n3: Pause movie\n4: Resume\n5: Save to Watch later \n6: Back to menu");
 
         while (whileKey) {
             String userChoise = ui.userInput();
@@ -29,6 +30,9 @@ public class Movie extends MediaData implements Media {
                     resumePlay();
                     break;
                 case "5":
+                   user.writerWatchLaterAndWatchList(this.getName());
+                    break;
+                case "6":
                     startMenu.userInterface();
                     whileKey = false;
             }
