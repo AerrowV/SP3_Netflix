@@ -39,15 +39,13 @@ public class Series extends MediaData implements Media {
     }
 
     public void nextEpisode() {
-        TextUI ui = new TextUI();
-        currentEpisode++;
-        ui.displayMsg("Episode " + currentEpisode + " selected");
-        if(currentEpisode > seasonSize) {
-            currentEpisode = 0;
-            selectSeason();
-        }
-        seriesOptions();
+        if (currentEpisode >= seasonSize) {
+            selectEpisode();
+            seriesOptions();
+        } else {
+            currentEpisode++;
 
+        }
     }
 
     public void seasonsInitializer() {
@@ -71,10 +69,14 @@ public class Series extends MediaData implements Media {
         currentEpisode = Integer.parseInt(choice);
         if (Integer.parseInt(choice) < sc.episodes.size()) {
             ui.displayMsg(sc.episodes.get(Integer.parseInt(choice) - 1) + " selected");
-            for(int i = 0 ; i < sc.episodes.size() ; i++) {
+            for (int i = 0; i < sc.episodes.size(); i++) {
                 seasonSize++;
             }
+        } else {
+            ui.displayMsg("Invalid selection");
+            selectEpisode();
         }
+
     }
 
     public Season selectSeason() {
@@ -83,12 +85,15 @@ public class Series extends MediaData implements Media {
         ui.displayMsg("\nType season number to select a season");
         String userChoice = ui.userInput();
         currentSeason = Integer.parseInt(userChoice);
-        if (Integer.parseInt(userChoice) < seasonEpisode.size()) {
+        if (Integer.parseInt(userChoice) <= seasonEpisode.size()) {
             ui.displayMsg(seasonEpisode.get(Integer.parseInt(userChoice) - 1) + " selected");
+            return seasonEpisode.get(Integer.parseInt(userChoice) - 1);
+
+        } else {
+            ui.displayMsg("Invalid selection");
+            return selectSeason();
 
         }
-        return seasonEpisode.get(Integer.parseInt(userChoice) - 1);
-
     }
 
     public void seriesOptions() {
@@ -96,7 +101,7 @@ public class Series extends MediaData implements Media {
         TextUI ui = new TextUI();
         StartMenu startMenu = new StartMenu();
         FileIO fileIO = new FileIO();
-        ui.displayMsg("1: Play episode\n" + "2: Resume\n" + "3: Stop\n" + "4: Pause\n" + "5: Next episode\n" + "6: Return to menu");
+        ui.displayMsg("1: Play episode "+ currentEpisode + "\n" + "2: Resume\n" + "3: Stop\n" + "4: Pause\n" + "5: Next episode\n" + "6: Return to menu");
         while (whileKey) {
             String userChoice = ui.userInput();
             switch (userChoice) {

@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.util.*;
 
 public class NetflixMenu {
@@ -81,7 +80,7 @@ public class NetflixMenu {
                     this.lowNumber = 0;
                 }
                 case "s" -> {
-                    selectMedie();
+                    selectMedia();
                 }
                 case "m" -> {
                     menu.userInterface();
@@ -123,7 +122,7 @@ public class NetflixMenu {
                     this.lowNumber = 0;
                 }
                 case "s" -> {
-                    selectMedie();
+                    selectMedia();
                 }
                 case "m" -> {
                     menu.userInterface();
@@ -170,11 +169,11 @@ public class NetflixMenu {
             searchMedia(userInput);
         } else {
             displaySearchMedia(set);
-            selectMedie();
+            selectMedia();
         }
     }
 
-    public void selectMedie(){
+    public void selectMedia(){
         TextUI ui = new TextUI();
         NetflixMenu menu = new NetflixMenu();
         ui.displayMsg("Please select a number above");
@@ -187,6 +186,7 @@ public class NetflixMenu {
             series.selectEpisode();
             series.seriesOptions();
         }
+
     }
 
     public ArrayList<Movie> getMovieList() {
