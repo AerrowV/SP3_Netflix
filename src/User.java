@@ -61,12 +61,37 @@ break;
         }
     }
 
-    public void writerSaveList(String saveList) {
-        try (FileWriter writer = new FileWriter(userDataFile, true)) {
-            writer.write(saveList + ";" + "\n");
+    public void writerSeenMoviesList(String saveList) {
+        try (Scanner sc = new Scanner(new FileReader(userDataFile))) {
+
+            List<String> temp = new ArrayList<>();
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                String[] index = line.split(";");
+                for (int i = 0; i < index.length; i++) {
+                    temp.add(index[i]);
+                }
+                temp.set(3, saveList);
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < temp.size(); i++) {
+                    builder.append(temp.get(i));
+                    if (i < temp.size() - 1) {
+                        builder.append(";");
+                    }
+                }
+                try (FileWriter writer = new FileWriter(userDataFile)) {
+                    writer.write(builder + "\n");
+                    System.out.println("Successfully added to save list!");
+                } catch (IOException e) {
+                    System.out.println("Failed to add to watch later");
+                }
+                break;
+            }
+
         } catch (IOException e) {
-            System.out.println("Failed to save list");
+            System.out.println("Failed to add to watch later");
         }
     }
 
-}
+    }

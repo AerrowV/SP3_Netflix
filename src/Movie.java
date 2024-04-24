@@ -12,13 +12,14 @@ public class Movie extends MediaData implements Media {
         TextUI ui = new TextUI();
         StartMenu startMenu = new StartMenu();
         User user = new User();
-        ui.displayMsg("1: Play movie\n2: Stop movie\n3: Pause movie\n4: Resume\n5: Save to Watch later \n6: Back to menu");
+        ui.displayMsg("1: Play movie\n2: Stop movie\n3: Pause movie\n4: Resume\n5: Save to Watch later\n6: Back to menu");
 
         while (whileKey) {
             String userChoise = ui.userInput();
             switch (userChoise) {
                 case "1":
                     play();
+                    user.writerSeenMoviesList(this.getName());
                     break;
                 case "2":
                     stopPlay();

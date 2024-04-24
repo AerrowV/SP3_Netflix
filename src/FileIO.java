@@ -57,7 +57,7 @@ public class FileIO {
 
     public void createAccount(String email, String password) {
         try (FileWriter writer = new FileWriter(userDataFile, true)) {
-            writer.write(email + ";" + password + ";" + "temp" + "\n");
+            writer.write(email + ";" + password + ";" + "temp" + ";" + "temp" +"\n");
         } catch (IOException e) {
             System.out.println("Failed to register user");
         }
