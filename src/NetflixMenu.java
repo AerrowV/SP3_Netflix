@@ -159,7 +159,8 @@ public class NetflixMenu {
         }
 
         displaySearchMedia(set);
-        menu.selectMovie();
+        Movie movie = menu.selectMovie();
+        movie.movieOptions();
     }
 
     public ArrayList<Movie> getMovieList() {
@@ -170,12 +171,12 @@ public class NetflixMenu {
         return seriesList;
     }
 
-    public void selectMovie(){
+    public Movie selectMovie(){
         TextUI ui = new TextUI();
         ui.displayMsg("Please select a movie number");
         String userChoice = ui.userInput();
 
-        movieList.get(Integer.parseInt(userChoice)-1);
+        return movieList.get(Integer.parseInt(userChoice)-1);
     }
 
 }

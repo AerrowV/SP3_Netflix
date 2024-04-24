@@ -42,8 +42,6 @@ public class StartMenu {
                 UI.displayMsg("Invalid option. Please enter 1, 2, or 3.");
             }
         }
-
-        scan.close();
     }
 
     public void userInterface() {
@@ -52,7 +50,7 @@ public class StartMenu {
 
             if ("1".equals(userInput)) {
 
-                UI.displayMsg("Search media");
+                UI.displayMsg("Search for title of movie/series");
                 menu.searchMedia(UI.userInput());
 
             }else if ("2".equals(userInput)) {
@@ -78,6 +76,8 @@ public class StartMenu {
     public void isPlaying() {
 
     }
+
+
 
 
 }
