@@ -144,7 +144,7 @@ public class NetflixMenu {
     }
 
     public void searchMedia(String keyword) {
-
+        NetflixMenu menu = new NetflixMenu();
         TreeSet<MediaData> set = new TreeSet<>();
         for (Movie movie : movieList) {
             if (movie.getName().toLowerCase().contains(keyword.toLowerCase())) {
@@ -159,6 +159,7 @@ public class NetflixMenu {
         }
 
         displaySearchMedia(set);
+        menu.selectMovie();
     }
 
     public ArrayList<Movie> getMovieList() {
@@ -169,11 +170,13 @@ public class NetflixMenu {
         return seriesList;
     }
 
-    public ArrayList<String> getGenreList() {
-        return genreList;
+    public void selectMovie(){
+        TextUI ui = new TextUI();
+        ui.displayMsg("Please select a movie number");
+        String userChoice = ui.userInput();
+
+        movieList.get(Integer.parseInt(userChoice)-1);
     }
-
-
 
 }
 
