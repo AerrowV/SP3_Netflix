@@ -3,12 +3,14 @@ import java.util.Scanner;
 
 public class Series extends MediaData implements Media {
     private ArrayList<Season> seasonEpisode;
+    private int currentEpisode;
+    private int seasonSize;
+    private int currentSeason;
 
 
     public Series(String name, String releaseYear, String genre, float rating, ArrayList<Season> seasonEpisode, int ID) {
         super(name, genre, releaseYear, rating, ID);
         this.seasonEpisode = seasonEpisode;
-
 
     }
 
@@ -33,26 +35,45 @@ public class Series extends MediaData implements Media {
 
     @Override
     public void play() {
-        System.out.println("Playing series: " + getName());
+        System.out.println("Playing series: " + getName() + " Season " + currentSeason + " Episode " + currentEpisode);
+    }
+
+    public void nextEpisode() {
+        TextUI ui = new TextUI();
+        currentEpisode++;
+        ui.displayMsg("Episode " + currentEpisode + " selected");
+        if(currentEpisode > seasonSize) {
+            currentEpisode = 0;
+            selectSeason();
+        }
+        seriesOptions();
+
     }
 
     public void seasonsInitializer() {
         TextUI ui = new TextUI();
+        ui.displayMsg("Select a season: ");
         for (Season season : seasonEpisode) {
-            ui.displayMsg("Select a season: " + season);
+            System.out.println(season);
         }
+
     }
 
     public void selectEpisode() {
         TextUI ui = new TextUI();
         Season sc = selectSeason();
+        ui.displayMsg("Select an episode:");
         for (Episode ep : sc.episodes) {
-            ui.displayMsg("Select an episode: " + ep);
+            System.out.println(ep);
         }
+
         String choice = ui.userInput();
+        currentEpisode = Integer.parseInt(choice);
         if (Integer.parseInt(choice) < sc.episodes.size()) {
             ui.displayMsg(sc.episodes.get(Integer.parseInt(choice) - 1) + " selected");
-
+            for(int i = 0 ; i < sc.episodes.size() ; i++) {
+                seasonSize++;
+            }
         }
     }
 
@@ -61,6 +82,7 @@ public class Series extends MediaData implements Media {
         seasonsInitializer();
         ui.displayMsg("\nType season number to select a season");
         String userChoice = ui.userInput();
+        currentSeason = Integer.parseInt(userChoice);
         if (Integer.parseInt(userChoice) < seasonEpisode.size()) {
             ui.displayMsg(seasonEpisode.get(Integer.parseInt(userChoice) - 1) + " selected");
 
@@ -82,15 +104,16 @@ public class Series extends MediaData implements Media {
                     play();
                     break;
                 case "2":
-                    stopPlay();
-                    break;
-                case "3":
-                    pausePlay();
-                    break;
-                case "4":
                     resumePlay();
                     break;
+                case "3":
+                    stopPlay();
+                    break;
+                case "4":
+                    pausePlay();
+                    break;
                 case "5":
+                    nextEpisode();
                     break;
                 case "6":
                     startMenu.userInterface();
