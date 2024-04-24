@@ -26,19 +26,36 @@ public class User {
 
 
 
+
     public void writerWatchLaterAndWatchList(String watchLater) {
-        try (FileWriter writer = new FileWriter(userDataFile, true)) {
+        try (Scanner sc = new Scanner(new FileReader(userDataFile))) {
 
+            List<String> temp = new ArrayList<>();
+            while(sc.hasNextLine()) {
+                String line = sc.nextLine();
+                String [] index = line.split(";");
+                for (int i = 0; i < index.length; i++) {
+                    temp.add(index[i]);
+                }
+                temp.set(2,watchLater);
 
-            Scanner sc = new Scanner(System.in);
-            String line = sc.nextLine();
-            String [] index = line.split(";");
-            writer.write( watchLater+ ";" + "\n");
-            if (index[0].equals(" ") && index[1].equals(" ")) {
-                index[3] = watchLater;
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < temp.size(); i++) {
+                    builder.append(temp.get(i));
+                    if (i<temp.size()-1) {
+                        builder.append(";");
+                    }
+                }
+
+                try (FileWriter writer = new FileWriter(userDataFile)) {
+                    writer.write( builder+"\n");
+                    System.out.println("Successfully added to watch later!");
+                } catch (IOException e) {
+                    System.out.println("Failed to add to watch later");
+                }
+break;
             }
 
-            System.out.println("Successfully added to watch later!");
         } catch (IOException e) {
             System.out.println("Failed to add to watch later");
         }
