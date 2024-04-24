@@ -21,20 +21,6 @@ public class User {
         this.watchedSeries = new ArrayList<>();
     }
 
-    public boolean DoesUserExist(String email) {
-        try (Scanner scanner = new Scanner(new FileReader(userDataFile))) {
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] index = line.split(";");
-                if (index[0].equals(email)) {
-                    return true;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("User doesn't exist");
-        }
-        return false;
-    }
-}
+
 
 }
