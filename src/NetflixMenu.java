@@ -180,11 +180,16 @@ public class NetflixMenu {
         String userChoice = ui.userInput();
         if(Integer.parseInt(userChoice) < 101) {
             Movie movie = menu.selectMovie(userChoice);
+            ui.displayMsg("Movie selected: " + movie.getName());
             movie.movieOptions();
-        } else if (Integer.parseInt(userChoice) > 100 && Integer.parseInt(userChoice) < 200){
+        } else if (Integer.parseInt(userChoice) > 100 && Integer.parseInt(userChoice) <= 200){
             Series series = menu.selectSeries(userChoice);
+            ui.displayMsg("Series selected: " + series.getName());
             series.selectEpisode();
             series.seriesOptions();
+        } else {
+            ui.displayMsg("Invalid number");
+            selectMedia();
         }
 
     }
