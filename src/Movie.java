@@ -1,8 +1,38 @@
+import java.util.ArrayList;
+
 public class Movie extends MediaData implements Media {
 
     public Movie(String name, String releaseYear, String genre, float rating, int ID) {
         super(name, genre, releaseYear, rating, ID);
 
+    }
+
+    public void movieOptions(){
+        boolean whileKey = true;
+        TextUI ui = new TextUI();
+        StartMenu startMenu = new StartMenu();
+        ui.displayMsg("1: Play movie\n2: Stop movie\n3: Pause movie\n4: Resume\n5: Back to menu");
+
+        while (whileKey) {
+            String userChoise = ui.userInput();
+            switch (userChoise) {
+                case "1":
+                    play();
+                    break;
+                case "2":
+                    stopPlay();
+                    break;
+                case "3":
+                    pausePlay();
+                    break;
+                case "4":
+                    resumePlay();
+                    break;
+                case "5":
+                    startMenu.userInterface();
+                    whileKey = false;
+            }
+        }
     }
 
     @Override
