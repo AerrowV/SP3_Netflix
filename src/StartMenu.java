@@ -8,26 +8,27 @@ public class StartMenu {
     NetflixMenu menu = new NetflixMenu();
     Genre genre = new Genre();
     Scanner scan = new Scanner(System.in);
+    private boolean isLoggedIn = false;
 
     public void loginAndSignUp() {
-
-        while (true) {
-           String userInput = UI.greetingMessage();
+        boolean run = true;
+        while (run) {
+            String userInput = UI.greetingMessage();
 
             if ("1".equals(userInput)) {
-              String email =  UI.messageGetUserEmail();
+                String email = UI.messageGetUserEmail();
                 String password = UI.messageGetUserPassword();
 
                 if (IO.getAccountInfo(email, password)) {
                     UI.displayMsg("Login successful!");
-                    userInterface(); //- This is the interFace for the next menu
-
+                    isLoggedIn = true;
+                    run = false;
                 } else {
                     UI.displayMsg("Invalid login. Please try again.");
                 }
             } else if ("2".equals(userInput)) {
-               String newEmail = UI.messageGetRegisterEmail();
-               String newPassword = UI.messageGetRegisterPassword();
+                String newEmail = UI.messageGetRegisterEmail();
+                String newPassword = UI.messageGetRegisterPassword();
 
                 if (!IO.DoesUserExist(newEmail)) {
                     IO.createAccount(newEmail, newPassword);
@@ -35,9 +36,8 @@ public class StartMenu {
                 } else {
                     UI.displayMsg("Email already registered!");
                 }
-
             } else if ("3".equals(userInput)) {
-                break;
+                run = false;
             } else {
                 UI.displayMsg("Invalid option. Please enter 1, 2, or 3.");
             }
@@ -45,42 +45,39 @@ public class StartMenu {
     }
 
     public void userInterface() {
-        while (true) {
+        while (isLoggedIn) {
             String userInput = UI.greetingFromMenu();
 
             if ("1".equals(userInput)) {
-
                 UI.displayMsg("Search for title of movie/series");
                 menu.searchMedia(UI.userInput());
-
-            }else if ("2".equals(userInput)) {
+            } else if ("2".equals(userInput)) {
                 UI.displayMsg("Please choose a genre");
                 genre.searchGenre();
-
-           }else if ("3".equals(userInput)) {
+            } else if ("3".equals(userInput)) {
                 menu.displayMovieList();
-
             } else if ("4".equals(userInput)) {
                 menu.displaySeriesList();
-
-             }else if ("5".equals(userInput)) {
-                User user = new User();
+            } else if ("5".equals(userInput)) {
                 UI.displayMsg("Saved list");
                 user.displaySavedMovies();
             } else if ("6".equals(userInput)) {
-                    UI.displayMsg("Exiting the program...");
-                    loginAndSignUp();
+                UI.displayMsg("Exiting the program...");
+                isLoggedIn = false;
             } else {
-                UI.displayMsg("Invalid option. Please enter 1, 2, or 3 etc. ");
+                UI.displayMsg("Invalid option. Please enter 1, 2, 3, etc.");
             }
         }
     }
 
-    public void isPlaying() {
-
+    public void run() {
+        while (true) {
+            loginAndSignUp();
+            if (isLoggedIn) {
+                userInterface();
+            } else {
+                break;
+            }
+        }
     }
-
-
-
-
 }

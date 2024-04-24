@@ -129,12 +129,12 @@ class TextUI {
 }
 
 Main -- StartMenu
-StartMenu *-- User
+StartMenu *--- User
 TextUI *-up- StartMenu
 User *- NetflixMenu
 NetflixMenu -- Movie
 NetflixMenu -- Series
-NetflixMenu -- Genre
+NetflixMenu --- Genre
 Genre --> Movie
 Genre --> Series
 Series *-- Season

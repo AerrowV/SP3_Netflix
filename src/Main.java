@@ -4,7 +4,7 @@ public class Main {
         StartMenu startMenu = new StartMenu();
         NetflixMenu netflixMenu = new NetflixMenu();
 
-        startMenu.loginAndSignUp();
+        startMenu.run();
 
     }
 }
