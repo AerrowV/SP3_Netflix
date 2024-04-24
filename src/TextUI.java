@@ -8,12 +8,8 @@ public class TextUI{
     Movie movie = new Movie("",null,"",0, 0);
     NetflixMenu menu= new NetflixMenu();
 
-
-    //metode til at kalde en besked
     public void displayMsg(String msg) {
         System.out.println(msg);
-
-
     }
 
     public String greetingMessage() {
@@ -63,7 +59,7 @@ public class TextUI{
 
     public String greetingFromMenu() {
         System.out.println("***********************");
-        System.out.println("Welcome to GFlix Menu");
+        System.out.println("|      GFlix Menu     |");
         System.out.println("***********************");
         System.out.println("1) Search media");
         System.out.println("2) Search category");

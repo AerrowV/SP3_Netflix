@@ -24,8 +24,9 @@ public class Season {
         return seasonNumber;
 
     }
+
     @Override
     public String toString() {
-        return "Season " + seasonNumber;
+        return seasonNumber;
     }
 }
