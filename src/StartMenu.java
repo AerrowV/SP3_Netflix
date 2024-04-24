@@ -61,7 +61,6 @@ public class StartMenu {
                 menu.displayMovieList();
 
             } else if ("4".equals(userInput)) {
-                UI.displayMsg("Please choose a series");
                 menu.displaySeriesList();
 
              }else if ("5".equals(userInput)) {

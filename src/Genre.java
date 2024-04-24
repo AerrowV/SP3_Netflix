@@ -143,6 +143,7 @@ public class Genre {
 
         if (genreFound) {
             menu.displaySearchMedia(genreResults);
+            menu.selectMedie();
         } else {
             System.out.println("There are no movies or series in this genre: " + chosenGenre);
         }

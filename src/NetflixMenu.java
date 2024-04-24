@@ -63,12 +63,12 @@ public class NetflixMenu {
                 System.out.println(movieList.get(lowNumber).toString());
             }
 
-            System.out.println("\nType '1' for next page" + "\nType '2' for previous page" + "\nType '3' to return to first page" + "\nType '4' to return to menu");
+            System.out.println("\nType 'N' for next page" + "\nType 'P' for previous page" + "\nType 'R' to return to first page" + "\nType 'S' to select a movie\nType 'M' to return to menu");
             String userInput = scan.nextLine();
-            switch (userInput) {
+            switch (userInput.toLowerCase()) {
 
-                case "1" -> this.highNumber += 5;
-                case "2" -> {
+                case "n" -> this.highNumber += 5;
+                case "p" -> {
                     if (this.lowNumber > 5) {
                         this.highNumber -= 5;
                         this.lowNumber -= 10;
@@ -76,11 +76,14 @@ public class NetflixMenu {
                         System.out.println("You can't go any further back");
                     }
                 }
-                case "3" -> {
+                case "r" -> {
                     this.highNumber = 5;
                     this.lowNumber = 0;
                 }
-                case ("4") -> {
+                case "s" -> {
+                    selectMedie();
+                }
+                case "m" -> {
                     menu.userInterface();
                     key = true;
                 }
@@ -102,12 +105,12 @@ public class NetflixMenu {
                 System.out.println(seriesList.get(lowNumber).toString());
             }
 
-            System.out.println("\nType '1' for next page" + "\nType '2' for previous page" + "\nType '3' to return to first page" + "\nType '4' to return to menu");
+            System.out.println("\nType 'N' for next page" + "\nType 'P' for previous page" + "\nType 'R' to return to first page" + "\nType 'S' to select a series\nType 'M' to return to menu");
             String userInput = scan.nextLine();
             switch (userInput) {
 
-                case "1" -> this.highNumber += 5;
-                case "2" -> {
+                case "n" -> this.highNumber += 5;
+                case "p" -> {
                     if (this.lowNumber > 5) {
                         this.highNumber -= 5;
                         this.lowNumber -= 10;
@@ -115,11 +118,14 @@ public class NetflixMenu {
                         System.out.println("You can't go any further back");
                     }
                 }
-                case "3" -> {
+                case "r" -> {
                     this.highNumber = 5;
                     this.lowNumber = 0;
                 }
-                case "4" -> {
+                case "s" -> {
+                    selectMedie();
+                }
+                case "m" -> {
                     menu.userInterface();
                     key = true;
                 }
@@ -144,7 +150,6 @@ public class NetflixMenu {
     }
 
     public void searchMedia(String keyword) {
-        NetflixMenu menu = new NetflixMenu();
         TreeSet<MediaData> set = new TreeSet<>();
         for (Movie movie : movieList) {
             if (movie.getName().toLowerCase().contains(keyword.toLowerCase())) {
@@ -159,11 +164,15 @@ public class NetflixMenu {
         }
 
         displaySearchMedia(set);
+        selectMedie();
+    }
 
+    public void selectMedie(){
         TextUI ui = new TextUI();
+        NetflixMenu menu = new NetflixMenu();
         ui.displayMsg("Please select the movie number above");
         String userChoice = ui.userInput();
-        if(Integer.parseInt(userChoice) > 100) {
+        if(Integer.parseInt(userChoice) < 101) {
             Movie movie = menu.selectMovie(userChoice);
             movie.movieOptions();
         } else {
